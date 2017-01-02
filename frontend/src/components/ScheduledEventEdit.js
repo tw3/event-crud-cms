@@ -13,7 +13,7 @@ export class ScheduledEventEdit extends React.Component {
     super(props);
 
     // bind <this> to the event method
-    this.formSubmit = this.formSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // render
@@ -22,7 +22,7 @@ export class ScheduledEventEdit extends React.Component {
     return (
       <div className="page-event-edit">
         <PageHeader>{'Event ' + (scheduledEvent.id ? 'edit' : 'add')}</PageHeader>
-        <Form horizontal onSubmit={handleSubmit(this.formSubmit)}>
+        <Form horizontal onSubmit={handleSubmit(this.handleSubmit)}>
           <Field component={FormField} name="title" label="Title" doValidate={true}/>
           <Field component={FormField} name="start_dt" label="Start Date/Time"/>
 					<Field component={FormField} name="end_dt" label="End Date/Time"/>
@@ -39,7 +39,7 @@ export class ScheduledEventEdit extends React.Component {
   }
 
   // submit the form
-  formSubmit(values) {
+  handleSubmit(values) {
     const {dispatch} = this.props;
     return new Promise((resolve, reject) => {
       dispatch({
