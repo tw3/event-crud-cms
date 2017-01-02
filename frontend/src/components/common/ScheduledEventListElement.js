@@ -19,7 +19,7 @@ export default class ScheduledEventListElement extends React.Component {
 				<td>{scheduledEvent.featured_bl.toString()}</td>
         <td>
           <Button bsSize="xsmall" className="event-delete" onClick={() => showDelete(scheduledEvent)}>
-            Delete <Glyphicon glyph="remove-circle" />
+            Delete <Glyphicon glyph="trash" />
           </Button>
         </td>
       </tr>
