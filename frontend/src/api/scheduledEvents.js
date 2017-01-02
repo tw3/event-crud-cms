@@ -1,30 +1,20 @@
 import axios from 'axios';
 
+// TODO: Read backend url from a config file
+const apiUrlOrigin = [location.protocol, '//', location.hostname, ':3000'].join(""); // e.g. http://localhost:3000
+const apiConfig = {
+	getListUrl: () => apiUrlOrigin+'/api/events',
+	getUpdateUrl: (eventId) => apiUrlOrigin+'/api/events/'+eventId,
+	getAddUrl: () => apiUrlOrigin+'/api/events/',
+	getDeleteUrl: (eventId) => apiUrlOrigin+'/api/events/'+eventId
+};
+
 // API ScheduledEvents static class
 export default class ApiScheduledEvents {
   // get a list of events
   static getList() {
     return new Promise(resolve => {
-			/* FAKE DATA
-      setTimeout(() => {
-        // build some dummy events list
-        let scheduledEvents = [];
-        for (let i = 1; i <= 28; i++) {
-          scheduledEvents.push({
-						id: i,
-						title: 'Event ' + i,
-						start_dt: (new Date()).toString(),
-						end_dt: (new Date()).toString(),
-						category: 'Category ' + i,
-						description: 'Description ' + i,
-						featured_bl: (Math.random() > 0.8) ? "true" : "false"
-          });
-        }
-        resolve(scheduledEvents);
-      }, 1000);
-      */
-
-			axios.get('http://localhost:3000/api/events') // TODO: Make backend url dynamic
+			axios.get(apiConfig.getListUrl())
 				.then(function (response) {
 					console.log(response);
 					resolve(response.data.data);
@@ -41,7 +31,7 @@ export default class ApiScheduledEvents {
     return new Promise(resolve => {
 			if (scheduledEvent.id) {
 				// Update
-				axios.put(`http://localhost:3000/api/events/{scheduledEvent.id}`, scheduledEvent)
+				axios.put(apiConfig.getUpdateUrl(scheduledEvent.id), scheduledEvent)
 					.then(function (response) {
 						console.log(response);
 						resolve();
@@ -52,7 +42,7 @@ export default class ApiScheduledEvents {
 					});
 			} else {
 				// Add
-				axios.post('http://localhost:3000/api/events', scheduledEvent)
+				axios.post(apiConfig.getAddUrl(), scheduledEvent)
 					.then(function (response) {
 						console.log(response);
 						resolve(response.data.data);
@@ -68,7 +58,7 @@ export default class ApiScheduledEvents {
   // delete an event
   static delete(eventId) {
     return new Promise(resolve => {
-			axios.delete(`http://localhost:3000/api/events/{eventId}`)
+			axios.delete(apiConfig.getDeleteUrl(eventId))
 				.then(function (response) {
 					console.log(response);
 					resolve();
