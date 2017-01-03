@@ -3,7 +3,7 @@ import { browserHistory } from "react-router";
 import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import createSagaMiddleware from "redux-saga";
 import freeze from "redux-freeze";
-import createLogger from 'redux-logger';
+import createLogger from "redux-logger";
 import { reducers } from "./reducers/index";
 import { sagas } from "./sagas/index";
 

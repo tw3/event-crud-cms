@@ -30,3 +30,18 @@
   width: 500px;
   margin-top: 40px;
 }
+
+/* Custom styles for the date time picker */
+
+/* move validation icon away from calendar and clock buttons */
+#ff-start_dt span.form-control-feedback,
+#ff-end_dt span.form-control-feedback {
+	right: 52px;
+}
+
+/* show green border for success */
+.has-success div.rw-datetimepicker {
+	border-color: #3c763d;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}

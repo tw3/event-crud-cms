@@ -13,6 +13,8 @@ const someEvent1 = {
 	category: 'Some category',
 	description: 'Some category',
 	featured_bl: 'true',
+	created_at: new Date("January 1, 2017 13:00:00"),
+	updated_at: new Date("January 1, 2017 14:00:00")
 };
 
 const otherEvent2 = {
@@ -23,6 +25,8 @@ const otherEvent2 = {
 	category: 'Other category',
 	description: 'Other category',
 	featured_bl: 'false',
+	created_at: new Date("February 1, 2017 13:00:00"),
+	updated_at: new Date("February 1, 2017 14:00:00")
 };
 
 const changedEvent2 = {
@@ -32,7 +36,9 @@ const changedEvent2 = {
 	end_dt: new Date("March 15, 2017 12:0:00"),
 	category: 'Changed category',
 	description: 'Changed category',
-	featured_bl: 'true'
+	featured_bl: 'true',
+	created_at: new Date("March 1, 2017 13:00:00"),
+	updated_at: new Date("March 1, 2017 14:00:00"),
 };
 
 function shallowClone(obj) {

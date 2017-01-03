@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 // TODO: Read backend url from a config file
 const apiUrlOrigin = (typeof window === "undefined") ?
@@ -21,10 +21,6 @@ function convertServerScheduledEvent(serverScheduledEvent) {
 	const scheduledEvent = serverScheduledEvent; // no need to clone
 	// parse the date strings into date objects
 	scheduledEvent.start_dt = new Date(scheduledEvent.start_dt);
-	//console.log("(scheduledEvent.start_dt).toString() = " + (scheduledEvent.start_dt).toString());
-	if ((scheduledEvent.start_dt).toString().indexOf("Central") === -1) {
-		//debugger;
-	}
 	scheduledEvent.end_dt = new Date(scheduledEvent.end_dt);
 	scheduledEvent.created_at = new Date(scheduledEvent.created_at);
 	scheduledEvent.updated_at = new Date(scheduledEvent.updated_at);
@@ -33,9 +29,9 @@ function convertServerScheduledEvent(serverScheduledEvent) {
 
 // API ScheduledEvents static class
 export default class ApiScheduledEvents {
-  // get a list of events
-  static getList() {
-    return new Promise(resolve => {
+	// get a list of events
+	static getList() {
+		return new Promise(resolve => {
 			axios.get(apiConfig.getListUrl())
 				.then(function (response) {
 					console.log(response);
@@ -46,11 +42,11 @@ export default class ApiScheduledEvents {
 					resolve();
 				});
 		});
-  }
+	}
 
-  // add/edit an event
-  static addEdit(scheduledEvent) {
-    return new Promise(resolve => {
+	// add/edit an event
+	static addEdit(scheduledEvent) {
+		return new Promise(resolve => {
 			if (scheduledEvent.id) {
 				// Update
 				axios.put(apiConfig.getUpdateUrl(scheduledEvent.id), scheduledEvent)
@@ -75,11 +71,11 @@ export default class ApiScheduledEvents {
 					});
 			}
 		});
-  }
+	}
 
-  // delete an event
-  static delete(eventId) {
-    return new Promise(resolve => {
+	// delete an event
+	static delete(eventId) {
+		return new Promise(resolve => {
 			axios.delete(apiConfig.getDeleteUrl(eventId))
 				.then(function (response) {
 					console.log(response);
@@ -89,6 +85,6 @@ export default class ApiScheduledEvents {
 					console.log(error);
 					resolve();
 				});
-    });
-  }
+		});
+	}
 }
