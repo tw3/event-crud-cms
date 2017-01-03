@@ -5,15 +5,12 @@ export default function scheduledEvents(state = {}, action = {}) {
       return action.scheduledEvents;
 
     case 'EVENTS_ADD_SAVE':
-      const scheduledEvent = action.scheduledEvent;
-      scheduledEvent.id = scheduledEvent.id || Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
-      return [...state, scheduledEvent];
+      return [...state, action.scheduledEvent]; // add new event to the end of the list
 
     case 'EVENTS_EDIT_SAVE':
       return state.map(scheduledEvent =>
         Number(scheduledEvent.id) === Number(action.scheduledEvent.id) ? {...action.scheduledEvent} : scheduledEvent
       );
-      break;
 
     case 'EVENTS_DELETE_SAVE':
       return state.filter(scheduledEvent =>

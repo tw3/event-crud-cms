@@ -1,13 +1,35 @@
 import axios from 'axios';
 
 // TODO: Read backend url from a config file
-const apiUrlOrigin = [location.protocol, '//', location.hostname, ':3000'].join(""); // e.g. http://localhost:3000
+const apiUrlOrigin = (typeof window === "undefined") ?
+	'http://localhost:3000' :
+	[window.location.protocol, '//', window.location.hostname, ':3000'].join(""); // e.g. http://localhost:3000
 const apiConfig = {
 	getListUrl: () => apiUrlOrigin+'/api/events',
 	getUpdateUrl: (eventId) => apiUrlOrigin+'/api/events/'+eventId,
 	getAddUrl: () => apiUrlOrigin+'/api/events/',
 	getDeleteUrl: (eventId) => apiUrlOrigin+'/api/events/'+eventId
 };
+
+function convertServerScheduledEvents(serverScheduledEvents) {
+	return serverScheduledEvents.map((serverScheduledEvent) => {
+		return convertServerScheduledEvent(serverScheduledEvent);
+	});
+}
+
+function convertServerScheduledEvent(serverScheduledEvent) {
+	const scheduledEvent = serverScheduledEvent; // no need to clone
+	// parse the date strings into date objects
+	scheduledEvent.start_dt = new Date(scheduledEvent.start_dt);
+	//console.log("(scheduledEvent.start_dt).toString() = " + (scheduledEvent.start_dt).toString());
+	if ((scheduledEvent.start_dt).toString().indexOf("Central") === -1) {
+		//debugger;
+	}
+	scheduledEvent.end_dt = new Date(scheduledEvent.end_dt);
+	scheduledEvent.created_at = new Date(scheduledEvent.created_at);
+	scheduledEvent.updated_at = new Date(scheduledEvent.updated_at);
+	return scheduledEvent;
+}
 
 // API ScheduledEvents static class
 export default class ApiScheduledEvents {
@@ -17,11 +39,11 @@ export default class ApiScheduledEvents {
 			axios.get(apiConfig.getListUrl())
 				.then(function (response) {
 					console.log(response);
-					resolve(response.data.data);
+					resolve(convertServerScheduledEvents(response.data.data));
 				})
 				.catch(function (error) { // TODO handle error scenario
 					console.log(error);
-					resolve(response.data.data);
+					resolve();
 				});
 		});
   }
@@ -36,7 +58,7 @@ export default class ApiScheduledEvents {
 						console.log(response);
 						resolve();
 					})
-					.catch(function (error) {
+					.catch(function (error) { // TODO handle error scenario
 						console.log(error);
 						resolve();
 					});
@@ -45,11 +67,11 @@ export default class ApiScheduledEvents {
 				axios.post(apiConfig.getAddUrl(), scheduledEvent)
 					.then(function (response) {
 						console.log(response);
-						resolve(response.data.data);
+						resolve(convertServerScheduledEvent(response.data.data));
 					})
-					.catch(function (error) {
+					.catch(function (error) { // TODO handle error scenario
 						console.log(error);
-						resolve(response.data.data);
+						resolve();
 					});
 			}
 		});
@@ -63,7 +85,7 @@ export default class ApiScheduledEvents {
 					console.log(response);
 					resolve();
 				})
-				.catch(function (error) {
+				.catch(function (error) { // TODO handle error scenario
 					console.log(error);
 					resolve();
 				});

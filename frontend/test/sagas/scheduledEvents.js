@@ -29,7 +29,7 @@ describe('ScheduledEvents saga', () => {
     const generator = scheduledEventsAddEdit(action);
 
     it('should return the ApiScheduledEvents.addEdit call', () => {
-      assert.deepEqual(generator.next().value, call(ApiScheduledEvents.addEdit));
+      assert.deepEqual(generator.next().value, call(ApiScheduledEvents.addEdit, action.scheduledEvent));
     });
 
     it('should return the EVENTS_ADD_SAVE action', () => {
@@ -52,7 +52,7 @@ describe('ScheduledEvents saga', () => {
     const generator = scheduledEventsAddEdit(action);
 
     it('should return the ApiScheduledEvents.addEdit call', () => {
-      assert.deepEqual(generator.next().value, call(ApiScheduledEvents.addEdit));
+      assert.deepEqual(generator.next().value, call(ApiScheduledEvents.addEdit, action.scheduledEvent));
     });
 
     it('should return the EVENTS_EDIT_SAVE action', () => {
@@ -74,7 +74,7 @@ describe('ScheduledEvents saga', () => {
     const generator = scheduledEventsDelete(action);
 
     it('should return the ApiScheduledEvents.delete call', () => {
-      assert.deepEqual(generator.next().value, call(ApiScheduledEvents.delete));
+      assert.deepEqual(generator.next().value, call(ApiScheduledEvents.delete, action.eventId));
     });
 
     it('should return the EVENTS_DELETE_SAVE action', () => {

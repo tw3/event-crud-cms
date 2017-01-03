@@ -7,5 +7,5 @@ import scheduledEvents from "./scheduledEvents";
 export const reducers = combineReducers({
   routing: routerReducer,
   form: formReducer,
-  scheduledEvents: scheduledEvents,
+  scheduledEvents: scheduledEvents
 });

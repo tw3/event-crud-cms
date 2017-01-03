@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
-import { FormGroup, FormControl, HelpBlock, Row, Col } from "react-bootstrap";
+import { FormGroup, FormControl, Checkbox, HelpBlock, Row, Col } from "react-bootstrap";
+import { DateTimeField } from './DateTimeField.js';
 
 // Form field component
 export default class FormField extends React.Component {
@@ -44,12 +45,24 @@ export default class FormField extends React.Component {
 
   // the field itself
   field() {
-    const {input, componentClass, type, placeholder, children} = this.props;
-    return (
-      <FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder}>
-        {children}
-      </FormControl>
-    );
+		const {input, componentClass, type, readonly, placeholder, children} = this.props;
+		if (type === "checkbox") {
+			return (
+				<Checkbox {...input} >
+					{children}
+				</Checkbox>
+			);
+		} else if (type === "datetime") {
+			return (
+				<DateTimeField {...this.props} />
+			);
+		} else {
+			return (
+				<FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder}>
+					{children}
+				</FormControl>
+			);
+		}
   }
 }
 
@@ -62,6 +75,7 @@ FormField.propTypes = {
   label: PropTypes.any,  // the field text or a react component if we have html inside (empty string by default)
   componentClass: PropTypes.string, // input (by default), textarea, select
   type: PropTypes.string,   // input type: text (by default), password
+	readonly: PropTypes.bool, // render as normal text if true, otherwise render component
   placeholder: PropTypes.string,    // input placeholder (empty string by default)
-  className: PropTypes.string,  // the class name (empty string by default)
-}
+  className: PropTypes.string  // the class name (empty string by default)
+};

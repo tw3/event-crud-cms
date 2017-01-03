@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import { Link } from "react-router";
 import { Button, Glyphicon } from "react-bootstrap";
-import moment from "moment";
+import { DateTimeFormatter } from './DateTimeField.js';
 
 // Event List Element component
 export default class ScheduledEventListElement extends React.Component {
@@ -12,11 +12,11 @@ export default class ScheduledEventListElement extends React.Component {
       <tr>
         <td>{scheduledEvent.id}</td>
         <td><Link to={'event-edit/' + scheduledEvent.id}>{scheduledEvent.title}</Link></td>
-        <td>{moment(new Date(scheduledEvent.start_dt)).format("MM/DD/YY hh:mm:ssa")}</td>
-				<td>{moment(new Date(scheduledEvent.end_dt)).format("MM/DD/YY hh:mm:ssa")}</td>
+        <td>{DateTimeFormatter.format(scheduledEvent.start_dt)}</td>
+				<td>{DateTimeFormatter.format(scheduledEvent.end_dt)}</td>
 				<td>{scheduledEvent.category}</td>
 				<td>{scheduledEvent.description}</td>
-				<td>{scheduledEvent.featured_bl.toString()}</td>
+				<td>{scheduledEvent.featured_bl ? "true" : "false"}</td>
         <td>
           <Button bsSize="xsmall" className="event-delete" onClick={() => showDelete(scheduledEvent)}>
             Delete <Glyphicon glyph="trash" />
@@ -30,5 +30,5 @@ export default class ScheduledEventListElement extends React.Component {
 // prop checks
 ScheduledEventListElement.propTypes = {
   scheduledEvent: PropTypes.object.isRequired,
-  showDelete: PropTypes.func.isRequired,
-}
+  showDelete: PropTypes.func.isRequired
+};

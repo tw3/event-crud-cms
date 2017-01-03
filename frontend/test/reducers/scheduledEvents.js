@@ -8,8 +8,8 @@ import scheduledEvents from "../../src/reducers/scheduledEvents";
 const someEvent1 = {
 	id: 1,
 	title: 'Some title',
-	start_dt: 'Some start date/time',
-	end_dt: 'Some end date/time',
+	start_dt: new Date("January 5, 2017 11:00:00"),
+	end_dt: new Date("January 5, 2017 12:0:00"),
 	category: 'Some category',
 	description: 'Some category',
 	featured_bl: 'true',
@@ -18,8 +18,8 @@ const someEvent1 = {
 const otherEvent2 = {
 	id: 2,
 	title: 'Other title',
-	start_dt: 'Other start date/time',
-	end_dt: 'Other end date/time',
+	start_dt: new Date("February 10, 2017 11:00:00"),
+	end_dt: new Date("February 10, 2017 12:0:00"),
 	category: 'Other category',
 	description: 'Other category',
 	featured_bl: 'false',
@@ -28,8 +28,8 @@ const otherEvent2 = {
 const changedEvent2 = {
 	id: 2,
 	title: 'Changed title',
-	start_dt: 'Changed start date/time',
-	end_dt: 'Changed end date/time',
+	start_dt: new Date("March 15, 2017 11:00:00"),
+	end_dt: new Date("March 15, 2017 12:0:00"),
 	category: 'Changed category',
 	description: 'Changed category',
 	featured_bl: 'true'

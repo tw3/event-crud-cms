@@ -5,6 +5,7 @@ import { Field, SubmissionError, reduxForm } from "redux-form";
 import { PageHeader, Form } from "react-bootstrap";
 import FormField from "./common/FormField";
 import FormSubmit from "./common/FormSubmit";
+import "react-widgets/lib/less/react-widgets.less";
 
 // ScheduledEvent add/edit page component
 export class ScheduledEventEdit extends React.Component {
@@ -23,16 +24,18 @@ export class ScheduledEventEdit extends React.Component {
       <div className="page-event-edit">
         <PageHeader>{'Event ' + (scheduledEvent.id ? 'edit' : 'add')}</PageHeader>
         <Form horizontal onSubmit={handleSubmit(this.handleSubmit)}>
-          <Field component={FormField} name="title" label="Title" doValidate={true}/>
-          <Field component={FormField} name="start_dt" label="Start Date/Time"/>
-					<Field component={FormField} name="end_dt" label="End Date/Time"/>
-					<Field component={FormField} name="category" label="Category"/>
-					<Field component={FormField} name="description" label="Description"/>
-					<Field component={FormField} name="featured_bl" label="Featured"/>
+          <Field component={FormField} name="title" label="Title" doValidate={true} />
+          <Field component={FormField} name="start_dt" label="Start Date/Time" type="datetime" />
+					<Field component={FormField} name="end_dt" label="End Date/Time" type="datetime" />
+					<Field component={FormField} name="category" label="Category" />
+					<Field component={FormField} name="description" label="Description" componentClass="textarea" />
+					<Field component={FormField} name="featured_bl" label="Featured" type="checkbox" />
+					<Field component={FormField} name="created_at" label="Created" type="datetime" readonly={true} />
+					<Field component={FormField} name="updated_at" label="Last Updated" type="datetime" readonly={true} />
           <FormSubmit
 						error={error} invalid={invalid} submitting={submitting} buttonSaveLoading="Saving..."
             buttonSave="Save Event"/>
-					{ /* <FormSubmit buttonSave="Cancel"/> */ }
+					{ /* <FormSubmit buttonSave="Cancel" /> */ }
         </Form>
       </div>
     );
@@ -42,13 +45,15 @@ export class ScheduledEventEdit extends React.Component {
   handleSubmit(values) {
     const {dispatch} = this.props;
     return new Promise((resolve, reject) => {
+			// The DateTimePicker from react-widgets is really cool but it really bugs me that require
+			// a Date object as input but then set a string value when the value is changed
       dispatch({
         type: 'EVENTS_ADD_EDIT',
         scheduledEvent: {
           id: values.id || 0,
           title: values.title,
-					start_dt: values.start_dt,
-					end_dt: values.end_dt,
+					start_dt: (typeof values.start_dt === "string") ? new Date(values.start_dt) : values.start_dt,
+					end_dt: (typeof values.end_dt === "string") ? new Date(values.end_dt) : values.end_dt,
 					category: values.category,
 					description: values.description,
 					featured_bl: values.featured_bl
@@ -74,7 +79,7 @@ const ScheduledEventEditForm = reduxForm({
       errors.title = 'Title is required';
     }
     return errors;
-  },
+  }
 })(ScheduledEventEdit);
 
 // export the connected class
@@ -82,7 +87,7 @@ function mapStateToProps(state, own_props) {
   const scheduledEvent = state.scheduledEvents.find(x => Number(x.id) === Number(own_props.params.id)) || {};
   return {
     scheduledEvent: scheduledEvent,
-    initialValues: scheduledEvent,
+    initialValues: scheduledEvent
   };
 }
 export default connect(mapStateToProps)(ScheduledEventEditForm);
