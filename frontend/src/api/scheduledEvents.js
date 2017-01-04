@@ -2,8 +2,12 @@ import axios from 'axios';
 
 // TODO: Read backend url from a config file
 const apiUrlOrigin = (typeof window === 'undefined') ?
-	'http://localhost:3000' :
-	[window.location.protocol, '//', window.location.hostname, ':3000'].join(''); // e.g. http://localhost:3000
+	'http://localhost:3000' : // needed to pass the tests
+	[window.location.protocol, // 'http' or 'https'
+		'//',
+		window.location.hostname, // the server host, e.g. 'localhost'
+		':3000', // the server port
+	].join('');
 const apiConfig = {
 	getListUrl: () => apiUrlOrigin + '/api/events',
 	getUpdateUrl: (eventId) => apiUrlOrigin + '/api/events/' + eventId,
