@@ -31,7 +31,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
     $ npm start
     ```
 
- - Test out the service in a web browser or (preferably) [Postman](https://www.getpostman.com/)
+ - Test out the service in a web browser or [Postman](https://www.getpostman.com/) or see it work from the corresonding [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application.
 
 ## Request API ##
 
