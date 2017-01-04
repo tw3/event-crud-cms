@@ -47,7 +47,7 @@ event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
         $ npm install
         $ npm start
 
- 8. Test out the service in a [Postman](https://www.getpostman.com/) or see it work from the corresonding [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application.
+ 8. Test out the service in [Postman](https://www.getpostman.com/) or see it work from the corresonding [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application.
 
 ## Request API
 
