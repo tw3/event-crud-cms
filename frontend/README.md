@@ -37,7 +37,6 @@ A demo of app will be posted as some point.
     ```sh
     $ cd event-crud-cms
     $ npm install
-    npm start
     ```
 
  6. If the corresponding back-end app is on a different port than the default (3000) then you will need to update the `apiUrlOrigin` variable in `src/api/scheduledEvents.js`
