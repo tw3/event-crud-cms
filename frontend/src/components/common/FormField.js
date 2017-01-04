@@ -6,12 +6,12 @@ import { DateTimeField } from "./DateTimeField";
 export default class FormField extends React.Component {
 	// render
 	render() {
-		const { input: { name }, className, doValidate, meta, bAlwaysValidate } = this.props;
+		const { input, className, doValidate, meta, bAlwaysValidate } = this.props;
 		if (doValidate) {
 			const bConsiderValidation = ((bAlwaysValidate && meta.error) || meta.touched);
 			const validationState = bConsiderValidation ? (meta.error ? 'error' : 'success') : null;
 			return (
-				<div id={"ff-"+name}>
+				<div id={"ff-"+(input ? input.name : "foobar")}>
 					<FormGroup className={className}
 										 validationState={ validationState }>
 						{this.content()}
