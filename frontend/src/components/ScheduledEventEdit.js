@@ -30,7 +30,7 @@ export class ScheduledEventEdit extends React.Component {
 		}
 		return (
 			<div className="page-event-edit">
-				<PageHeader>{'Event ' + (bIsEdit ? 'edit' : 'add')}</PageHeader>
+				<PageHeader>{(bIsEdit ? 'Edit' : 'Add') + ' Event'}</PageHeader>
 				<Form horizontal onSubmit={handleSubmit(this.handleSubmit)}>
 					<Field
 						component={FormField} name="title" label="Title"
