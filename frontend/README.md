@@ -76,8 +76,8 @@ A demo of app will be posted as some point.
 
 The codebase aims to follow the Airbnb style guide.  There is one guideline
 I don't agree with though and that's the 2 spaces rule.  [Truth be told I do
-have a slight preference for tabs](https://www.youtube.com/watch?v=SsoOG6ZeyUI).
-Most IDEs nowadays let you configure the indentation size for your tabbed
+have a slight preference for tabs](https://www.youtube.com/watch?v=SsoOG6ZeyUI)
+since most IDEs now  let you configure the indentation size for your tabbed
 code.
 
 ## License ##
