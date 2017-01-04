@@ -17,7 +17,13 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
  2. Install [Git](https://git-scm.com/downloads)
  
- 3. Install [Postgres](https://www.postgresql.org/download/)
+ 3. Clone this repo
+
+    ```sh
+    $ git clone https://github.com/tw3/event-crud-cms.git event-crud-cms
+    ```
+
+ 4. Install [Postgres](https://www.postgresql.org/download/)
  
  This application expects to connect to a Postgres with this info:
  
@@ -26,13 +32,20 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
   - Port: 5432
   
   If necessary you can change this my modifying the `sequelize` variable in `src/models/index.js` as described in the **Database Support** section below.
+  
+  5. Upate your environment variables:
+ 
+   - Add the PostgreSQL bin directory to your PATH (so you can run the `psql` command below)
+   - Set the `PGUSER` environment variable to `postgres`
+   - Set the `PGPASSWORD` environment variable to `password` (or whatever you chose during installation)
 
- 3. Clone this repo
-
+  6. Initialize the database
+ 
     ```sh
-    $ git clone https://github.com/tw3/event-crud-cms.git event-crud-cms
-    ```
-
+    $ cd event-crud-cms/backend/init
+    $ psql -f init.sql
+    ``` 
+    
  4. Install and run this backend app
 
     ```sh
@@ -69,7 +82,7 @@ This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is a
     ```javascript
     const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
     ```
-
+ 
 ## License ##
 
 This project is licensed under the MIT license, Copyright (c) 2017 Ted Weatherly.
