@@ -25,7 +25,7 @@ A demo of app will be posted as some point.
 
  2. Open a separate command prompt and navigate to the `event-crud-cms` directory
  
- 3. Install this [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application
+ 3. Install this frontend application
  
      ```sh
     $ cd frontend
