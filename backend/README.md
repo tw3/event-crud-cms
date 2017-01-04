@@ -25,7 +25,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
  4. Install [Postgres](https://www.postgresql.org/download/)
  
- This application expects to connect to a Postgres with this info:
+ This application expects to connect to the Postgres database with this info:
  
   - Username: `postgres`
   - Password: `password`
