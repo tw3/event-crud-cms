@@ -57,7 +57,7 @@ A demo of app will be posted as some point.
     $ npm start
     ```
 
- 8. Visit the app at http://localhost:8080/
+ 8. Visit the app at [http://localhost:8080/](http://localhost:8080/)
 
 ## Known Bugs and Possible Improvements ##
 
