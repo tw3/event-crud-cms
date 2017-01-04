@@ -23,15 +23,9 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
     $ git clone https://github.com/tw3/event-crud-cms.git event-crud-cms
     ```
 
- 4. Install [Postgres](https://www.postgresql.org/download/)
+ 4. Install [Postgres](https://www.postgresql.org/download/) and choose `password` as the password for the default user `postgres`
  
- This application expects to connect to the Postgres database with this info:
- 
-  - Username: `postgres`
-  - Password: `password`
-  - Port: `5432`
-  
-  If necessary you can change this my modifying the `sequelize` variable in `src/models/index.js` as described in the **Database Support** section below.
+    See the **Database Support** section below if your database config will be different than the default.
   
   5. Upate your environment variables:
  
@@ -75,10 +69,25 @@ When adding or updating a user the following fields should be sent:
  - `description` - Description of the event, e.g. *"Jim is hosting a big party, all the ghosts and goblins are invited."*
  - `featured_bl` - Whether the event is featured, e.g. *"true"* or *"false"*
 
+    ```sh
+    $ cd event-crud-cms/backend
+    $ npm install
+    $ npm start
+    ```
+
 ## Database Support ##
 
-This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is an ORM that supports several databases incuding PostgreSQL, MySQL, MariaDB, SQLite and MSSQL.  This application is configured to work with PostgreSQL this can easily be changed by updating the SQL connection string found in src/models/index.js:
+This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is an ORM that supports several databases incuding PostgreSQL, MySQL, MariaDB, SQLite and MSSQL.  This application is configured to work with PostgreSQL with this connection info:
 
+ - Username: `postgres`
+ - Password: `password`
+ - Port: `5432`
+
+
+    ```sh
+    $ npm start
+    ```
+    
     ```javascript
     const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
     ```
