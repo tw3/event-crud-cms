@@ -4,13 +4,14 @@ Event-CRUD-CMS-frontend is a front-end web application to **C**reate, **R**ead, 
 
 A demo of app will be posted as some point.
 
-## Notable Modules ##
+## Node-able Modules ##
 
  - [React](https://github.com/facebook/react) - renders the application in a component-based manner
  - [Redux](https://github.com/reactjs/redux) - manages the application state
  - [React Router](https://github.com/reactjs/react-router) - manages the routing state
  - [Redux Form](https://github.com/erikras/redux-form) - manages the form state, submission, and validation
  - [Redux Saga](https://github.com/redux-saga/redux-saga) - manages asynchronous state changes
+ - [Redux Logger](https://github.com/evgenyrodionov/redux-logger) - logger middleware for Redux, useful for debugging
  - [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) - manages style/layout
  - [React Widgets](https://github.com/jquense/react-widgets) - provides a date/time picker
  - [Babel](https://github.com/babel/babel) - transpiles ES6 JavaScript code to ES5
@@ -20,26 +21,18 @@ A demo of app will be posted as some point.
 
 ## Getting Started ##
 
- 1. Install [Node.js](https://nodejs.org/en/download/current/)
+ 1. Follow the instructions to install and run the [backend](https://github.com/tw3/event-crud-cms/tree/master/backend) application
 
- 2. Install [Git](https://git-scm.com/downloads)
-
- 3. Install and run the [event-CRUD-CMS-backend](https://github.com/tw3/event-crud-cms/tree/master/backend) application
-
- 4. Clone this repo
-
-    ```sh
-    $ git clone https://github.com/tw3/event-crud-cms.git event-crud-cms
-    ```
-
- 5. Install the app
-
-    ```sh
-    $ cd event-crud-cms
+ 2. Open a separate command prompt and navigate to the `event-crud-cms` directory
+ 
+ 3. Install this frontend application
+ 
+     ```sh
+    $ cd frontend
     $ npm install
     ```
 
- 6. If the corresponding back-end app is on a different port than the default (3000) then you will need to update the `apiUrlOrigin` variable in `src/api/scheduledEvents.js`
+ 4. If the corresponding back-end app is on a different port than the default (3000) then you will need to update the `apiUrlOrigin` variable in `src/api/scheduledEvents.js`
 
     ```javascript
     const apiUrlOrigin = (typeof window === 'undefined') ?
@@ -51,7 +44,7 @@ A demo of app will be posted as some point.
     	].join('');
     ```
 
- 7. Start the app
+ 5. Start the app
 
     ```sh
     $ npm start
