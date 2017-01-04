@@ -11,7 +11,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
  - [Sequelize](https://github.com/sequelize/sequelize) - ORM for Node
  - [Babel](https://github.com/babel/babel) - transpiles ES6 JavaScript code to ES5
 
-## Getting Startes
+## Getting Started
 
  1. Install [Node.js](https://nodejs.org/en/download/current/) (if necessary)
 
@@ -25,18 +25,21 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
  
     (See the [Database Support](#database-support) section below if your database setup is different than the default.)
   
- 5. Upate your environment variables:
+ 5. Upate your environment variables so you can run `psql`:
  
-   - Add the PostgreSQL bin directory to your PATH (so you can run the `psql` command below)
+   - Add the PostgreSQL bin directory to your `PATH`
+     - Default path for Windows (32-bit): `C:\Program Files\PostgreSQL\9.6\bin`
+     - Default path for Windows (64-bit): `C:\Program Files (x86)\PostgreSQL\9.6\bin`
+     - Default path for Unix: `/usr/local/pgsql/bin`
    - Set the `PGUSER` environment variable to `postgres`
-   - Set the `PGPASSWORD` environment variable to `password` (or whatever you chose during installation)
+   - Set the `PGPASSWORD` environment variable to `password`
 
- 6. Initialize the database
+ 6. Run the `init.sql` SQL script to initialize the database
  
         $ cd event-crud-cms/backend/init
         $ psql -f init.sql
     
- 7. Install and run this backend app
+ 7. Install and run the backend app
 
         $ cd event-crud-cms/backend
         $ npm install
@@ -46,11 +49,31 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
 ## Request API
 
- - Get the list of users: `GET http://localhost:3000/api/events`
- - Get the user #1: `GET http://localhost:3000/api/events/1` where the `1` is the user's id
- - Update the user #1: `PUT http://localhost:3000/api/events/1` with appropriate body data
- - Add a user: `POST http://localhost:3000/api/events` with the appropriate body data
- - Delete user #1: `DELETE http://localhost:3000/api/events/1`
+ - Get the list of users:
+ 
+   `GET http://localhost:3000/api/events`
+   
+ - Get the user #1:
+ 
+   `GET http://localhost:3000/api/events/1`
+ 
+ ...where the `1` is the user's id
+ 
+ - Update the user #1:
+ 
+   `PUT http://localhost:3000/api/events/1`
+ 
+   ...with appropriate body data
+ 
+ - Add a user:
+ 
+   `POST http://localhost:3000/api/events`
+ 
+   ...with the appropriate body data
+ 
+ - Delete user #1:
+ 
+   `DELETE http://localhost:3000/api/events/1`
 
 ## Request Body Data / Schema
 
@@ -80,7 +103,9 @@ This configuration can be easily changed by updating the `sequelize` SQL connect
 ````javascript
 const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
 ````
- 
+
+If you choose to use a different username or password you will either need to pass those parameters into the `psql` command when running the initi.sql script or you will need to update the `PGUSER` and `PGPASSWORD` environment variables
+
 ## License
 
 This project is licensed under the MIT license, Copyright (c) 2017 Ted Weatherly.
