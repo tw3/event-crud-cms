@@ -60,10 +60,10 @@ A demo of app will be posted as some point.
  items are shown first
  - There should be a cancel button on the add/edit form
  - The buttons on the add/edit form should have better alignment
- - A card or stacked layout may be better than a table layout
- - The featured flag could be changed using a selectable "star"
+ - A card or stacked layout may be better than a table layout for
+ the list page
+ - The featured flag could be changed using a toggleable "star"
  widget on the list page (similar to the star widget in Gmail)
- -
 
 ## Coding Style Guide ##
 
