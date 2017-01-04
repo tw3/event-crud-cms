@@ -45,7 +45,6 @@ export class ScheduledEventList extends React.Component {
 						<th>Start Date/Time</th>
 						<th>End Date/Time</th>
 						<th>Category</th>
-						<th>Description</th>
 						<th>Featured</th>
 						<th>Delete</th>
 					</tr>

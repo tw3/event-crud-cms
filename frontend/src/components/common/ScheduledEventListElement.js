@@ -15,7 +15,6 @@ export default class ScheduledEventListElement extends React.Component {
 				<td>{DateTimeFormatter.format(scheduledEvent.start_dt)}</td>
 				<td>{DateTimeFormatter.format(scheduledEvent.end_dt)}</td>
 				<td>{scheduledEvent.category}</td>
-				<td>{scheduledEvent.description}</td>
 				<td>{scheduledEvent.featured_bl ? 'true' : 'false'}</td>
 				<td>
 					<Button bsSize="xsmall" className="event-delete" onClick={() => showDelete(scheduledEvent)}>
