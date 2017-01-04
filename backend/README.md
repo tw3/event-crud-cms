@@ -13,9 +13,9 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
 ## Getting Started ##
 
- 1. Install [Node.js](https://nodejs.org/en/download/current/)
+ 1. Install [Node.js](https://nodejs.org/en/download/current/) (if necessary)
 
- 2. Install [Git](https://git-scm.com/downloads)
+ 2. Install [Git](https://git-scm.com/downloads) (if necessary)
  
  3. Clone this repo
 
