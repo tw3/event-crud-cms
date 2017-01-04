@@ -1,6 +1,6 @@
 ## Event-CRUD-CMS-backend ##
 
-Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  This application provides a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) way to fetch and update the data stored in a database.  The code in this application is configured to connect to a PostgresSQL database but it can be easily changed to use any of the other database supported by Sequelize, which curently supports PostgreSQL, MySQL, MariaDB, SQLite and MSSQL.
+Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  This application provides a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) way to fetch and update the data stored in a database.
 
 ## Node-able Modules ##
 
