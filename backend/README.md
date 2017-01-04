@@ -66,9 +66,9 @@ When adding or updating a user the following fields should be sent:
 
 This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is an ORM that supports several databases incuding PostgreSQL, MySQL, MariaDB, SQLite and MSSQL.  This application is configured to work with PostgreSQL this can easily be changed by updating the SQL connection string found in src/models/index.js:
 
-    ````javascript
+    ```javascript
     const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
-    ````
+    ```
 
 ## License ##
 
