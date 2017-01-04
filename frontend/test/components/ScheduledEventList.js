@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import assert from "assert";
-import { ScheduledEventList } from "../../src/components/common/ScheduledEventList";
+import React from 'react';
+import { shallow } from 'enzyme';
+import assert from 'assert';
+import { ScheduledEventList } from '../../src/components/common/ScheduledEventList';
 
 // unit tests for the ScheduledEventList component
 describe('ScheduledEventList component', () => {

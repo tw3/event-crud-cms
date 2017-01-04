@@ -1,6 +1,6 @@
-import React, { PropTypes } from "react";
-import { FormGroup, FormControl, Checkbox, HelpBlock, Row, Col } from "react-bootstrap";
-import { DateTimeField } from "./DateTimeField";
+import React, { PropTypes } from 'react';
+import { FormGroup, FormControl, Checkbox, HelpBlock, Row, Col } from 'react-bootstrap';
+import { DateTimeField } from './DateTimeField';
 
 // Form field component
 export default class FormField extends React.Component {

@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import assert from "assert";
-import FormSubmit from "../../src/components/common/FormSubmit";
+import React from 'react';
+import { shallow } from 'enzyme';
+import assert from 'assert';
+import FormSubmit from '../../src/components/common/FormSubmit';
 
 // unit tests for the FormSubmit component
 describe('FormSubmit component', () => {

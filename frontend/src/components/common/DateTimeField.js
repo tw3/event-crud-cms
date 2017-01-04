@@ -1,6 +1,6 @@
-import React from "react";
-import { DateTimePicker } from "react-widgets";
-import Moment from "moment";
+import React from 'react';
+import { DateTimePicker } from 'react-widgets';
+import Moment from 'moment';
 
 export const timeFormat = "h:mm a";
 export const dateTimeFormat = "M/D/YY " + timeFormat;

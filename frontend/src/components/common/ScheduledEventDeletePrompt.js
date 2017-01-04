@@ -1,5 +1,5 @@
-import React, { PropTypes } from "react";
-import { Modal, Button } from "react-bootstrap";
+import React, { PropTypes } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
 // Event delete component
 export default class ScheduledEventDeletePrompt extends React.Component {

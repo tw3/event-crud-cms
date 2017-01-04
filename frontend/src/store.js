@@ -1,11 +1,11 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import { browserHistory } from "react-router";
-import { syncHistoryWithStore, routerMiddleware } from "react-router-redux";
-import createSagaMiddleware from "redux-saga";
-import freeze from "redux-freeze";
-import createLogger from "redux-logger";
-import { reducers } from "./reducers/index";
-import { sagas } from "./sagas/index";
+import { createStore, applyMiddleware, compose } from 'redux';
+import { browserHistory } from 'react-router';
+import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
+import createSagaMiddleware from 'redux-saga';
+import freeze from 'redux-freeze';
+import createLogger from 'redux-logger';
+import { reducers } from './reducers/index';
+import { sagas } from './sagas/index';
 
 // add the middlewares
 let middlewares = [];

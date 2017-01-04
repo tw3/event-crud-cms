@@ -1,5 +1,5 @@
-import validate from "validate.js";
-import { DateTimeFormatter } from "../components/common/DateTimeField";
+import validate from 'validate.js';
+import { DateTimeFormatter } from '../components/common/DateTimeField';
 
 validate.extend(validate.validators.datetime, {
 	parse: DateTimeFormatter.getUTC,

@@ -1,7 +1,7 @@
-import { combineReducers } from "redux";
-import { routerReducer } from "react-router-redux";
-import { reducer as formReducer } from "redux-form";
-import scheduledEvents from "./scheduledEvents";
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+import { reducer as formReducer } from 'redux-form';
+import scheduledEvents from './scheduledEvents';
 
 // main reducers
 export const reducers = combineReducers({

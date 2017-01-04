@@ -1,6 +1,6 @@
-import { takeLatest } from "redux-saga";
-import { fork } from "redux-saga/effects";
-import { scheduledEventsFetchList, scheduledEventsAddEdit, scheduledEventsDelete } from "./scheduledEvents";
+import { takeLatest } from 'redux-saga';
+import { fork } from 'redux-saga/effects';
+import { scheduledEventsFetchList, scheduledEventsAddEdit, scheduledEventsDelete } from './scheduledEvents';
 
 // main saga generators
 export function* sagas() {

@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import assert from "assert";
-import ScheduledEventDeletePrompt from "../../src/components/common/ScheduledEventDeletePrompt";
+import React from 'react';
+import { shallow } from 'enzyme';
+import assert from 'assert';
+import ScheduledEventDeletePrompt from '../../src/components/common/ScheduledEventDeletePrompt';
 
 // unit tests for the ScheduledEventDeletePrompt component
 describe('ScheduledEventDeletePrompt component', () => {

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 // TODO: Read backend url from a config file
 const apiUrlOrigin = (typeof window === "undefined") ?

@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { ProgressBar } from "react-bootstrap";
-import Menu from "./common/Menu";
-import "../stylesheets/main.scss";
+import React from 'react';
+import { connect } from 'react-redux';
+import { ProgressBar } from 'react-bootstrap';
+import Menu from './common/Menu';
+import '../stylesheets/main.scss';
 
 // App component
 export class App extends React.Component {

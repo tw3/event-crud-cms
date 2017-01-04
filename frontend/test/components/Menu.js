@@ -1,7 +1,7 @@
-import React from "react";
-import { shallow } from "enzyme";
-import assert from "assert";
-import Menu from "../../src/components/common/Menu";
+import React from 'react';
+import { shallow } from 'enzyme';
+import assert from 'assert';
+import Menu from '../../src/components/common/Menu';
 
 // unit tests for the Menu component
 describe('Menu component', () => {

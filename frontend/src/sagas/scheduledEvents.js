@@ -1,5 +1,5 @@
-import { call, put } from "redux-saga/effects";
-import ApiScheduledEvents from "../api/scheduledEvents";
+import { call, put } from 'redux-saga/effects';
+import ApiScheduledEvents from '../api/scheduledEvents';
 
 // fetch the event's list
 export function* scheduledEventsFetchList(action) {

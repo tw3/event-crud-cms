@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
-import { push } from "react-router-redux";
-import { Table, Pagination } from "react-bootstrap";
-import ScheduledEventListElement from "./ScheduledEventListElement";
-import ScheduledEventDeletePrompt from "./ScheduledEventDeletePrompt";
+import React from 'react';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+import { Table, Pagination } from 'react-bootstrap';
+import ScheduledEventListElement from './ScheduledEventListElement';
+import ScheduledEventDeletePrompt from './ScheduledEventDeletePrompt';
 
 // Event list component
 export class ScheduledEventList extends React.Component {

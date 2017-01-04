@@ -1,7 +1,7 @@
-import { call, put } from "redux-saga/effects";
-import assert from "assert";
-import { scheduledEventsFetchList, scheduledEventsAddEdit, scheduledEventsDelete } from "../../src/sagas/scheduledEvents";
-import ApiScheduledEvents from "../../src/api/scheduledEvents";
+import { call, put } from 'redux-saga/effects';
+import assert from 'assert';
+import { scheduledEventsFetchList, scheduledEventsAddEdit, scheduledEventsDelete } from '../../src/sagas/scheduledEvents';
+import ApiScheduledEvents from '../../src/api/scheduledEvents';
 
 // unit tests for the events saga
 describe('ScheduledEvents saga', () => {

@@ -1,13 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-import { push } from "react-router-redux";
-import { Field, SubmissionError, reduxForm } from "redux-form";
-import { PageHeader, Form } from "react-bootstrap";
-import FormField from "./common/FormField";
-import FormSubmit from "./common/FormSubmit";
-import { DateTimeFormatter } from "./common/DateTimeField";
-import validate from "../util/ScheduleEventEditValidate";
-import "react-widgets/lib/less/react-widgets.less";
+import React from 'react';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+import { Field, SubmissionError, reduxForm } from 'redux-form';
+import { PageHeader, Form } from 'react-bootstrap';
+import FormField from './common/FormField';
+import FormSubmit from './common/FormSubmit';
+import { DateTimeFormatter } from './common/DateTimeField';
+import validate from '../util/ScheduleEventEditValidate';
+import 'react-widgets/lib/less/react-widgets.less';
 
 // ScheduledEvent add/edit page component
 export class ScheduledEventEdit extends React.Component {

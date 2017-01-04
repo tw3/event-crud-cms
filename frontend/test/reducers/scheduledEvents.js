@@ -1,5 +1,5 @@
-import assert from "assert";
-import scheduledEvents from "../../src/reducers/scheduledEvents";
+import assert from 'assert';
+import scheduledEvents from '../../src/reducers/scheduledEvents';
 
 // unit tests for the events reducers
 // mocha - http://mochajs.org/#getting-started

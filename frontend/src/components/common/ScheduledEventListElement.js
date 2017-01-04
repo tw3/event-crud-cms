@@ -1,7 +1,7 @@
-import React, { PropTypes } from "react";
-import { Link } from "react-router";
-import { Button, Glyphicon } from "react-bootstrap";
-import { DateTimeFormatter } from "./DateTimeField";
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import { Button, Glyphicon } from 'react-bootstrap';
+import { DateTimeFormatter } from './DateTimeField';
 
 // Event List Element component
 export default class ScheduledEventListElement extends React.Component {
