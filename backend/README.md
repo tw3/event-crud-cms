@@ -31,7 +31,9 @@ event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
      - Default path for Windows (32-bit): `C:\Program Files\PostgreSQL\9.6\bin`
      - Default path for Windows (64-bit): `C:\Program Files (x86)\PostgreSQL\9.6\bin`
      - Default path for Unix: `/usr/local/pgsql/bin`
+     
    - Set the `PGUSER` environment variable to `postgres`
+   
    - Set the `PGPASSWORD` environment variable to `password`
 
  6. Run the `init.sql` SQL script to initialize the database
