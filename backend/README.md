@@ -84,10 +84,6 @@ This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is a
  - Port: `5432`
 
 
-    ```sh
-    $ npm start
-    ```
-    
     ```javascript
     const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
     ```
