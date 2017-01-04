@@ -25,7 +25,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
  4. Install [Postgres](https://www.postgresql.org/download/) and choose `password` as the password for the default user `postgres`
  
-    See the **Database Support** section below if your database config will be different than the default.
+    (See the **Database Support** section below if your database setup is different than the default.)
   
  5. Upate your environment variables:
  
