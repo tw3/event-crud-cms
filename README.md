@@ -4,9 +4,9 @@ Event-CRUD-CMS is a full stack web application to **C**reate, **R**ead, **U**pda
 
 ## Getting Started ##
 
- 1. Install [Node.js](https://nodejs.org/en/download/current/)
+ 1. Install [Node.js](https://nodejs.org/en/download/current/) (if necessary)
  
- 2. Install [Git](https://git-scm.com/downloads)
+ 2. Install [Git](https://git-scm.com/downloads) (if necessary)
  
  3. Clone this repo:
 
