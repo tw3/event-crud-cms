@@ -102,7 +102,7 @@ This configuration can be easily changed by updating the `sequelize` SQL connect
 const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
 ````
 
-If you choose to use a different username or password you will either need to pass those parameters into the `psql` command when running the initi.sql script or you will need to update the `PGUSER` and `PGPASSWORD` environment variables
+If you choose to use a different username or password you will either need to pass those parameters into the `psql` command when running the `initi.sql` script or you will need to update the `PGUSER` and `PGPASSWORD` environment variables
 
 ## License
 
