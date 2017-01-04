@@ -8,7 +8,7 @@ import "../stylesheets/main.scss";
 export class App extends React.Component {
   // pre-render logic
   componentWillMount() {
-    // the first time we load the app, we need that events list
+    // the first time we load the app, we need the events list
     this.props.dispatch({type: 'EVENTS_FETCH_LIST'});
   }
 
