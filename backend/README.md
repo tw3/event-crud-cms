@@ -41,7 +41,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
  - Add a user: `POST http://localhost:3000/api/events` with the appropriate body data
  - Delete user #1: `DELETE http://localhost:3000/api/events/1`
 
-## Request Body Data ##
+## Request Body Data / Schema ##
 
 When adding or updating a user the following fields should be sent:
 
