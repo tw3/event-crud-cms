@@ -27,20 +27,20 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
  
     See the **Database Support** section below if your database config will be different than the default.
   
-  5. Upate your environment variables:
+ 5. Upate your environment variables:
  
    - Add the PostgreSQL bin directory to your PATH (so you can run the `psql` command below)
    - Set the `PGUSER` environment variable to `postgres`
    - Set the `PGPASSWORD` environment variable to `password` (or whatever you chose during installation)
 
-  6. Initialize the database
+ 6. Initialize the database
  
     ```sh
     $ cd event-crud-cms/backend/init
     $ psql -f init.sql
     ``` 
     
- 4. Install and run this backend app
+ 7. Install and run this backend app
 
     ```sh
     $ cd event-crud-cms/backend
@@ -48,7 +48,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
     $ npm start
     ```
 
- 5. Test out the service in a web browser or [Postman](https://www.getpostman.com/) or see it work from the corresonding [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application.
+ 8. Test out the service in a web browser or [Postman](https://www.getpostman.com/) or see it work from the corresonding [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application.
 
 ## Request API ##
 
