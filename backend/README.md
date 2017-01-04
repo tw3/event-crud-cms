@@ -49,35 +49,35 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
 ## Request API
 
- - Get the list of users:
+ - Get the list of events:
  
    `GET http://localhost:3000/api/events`
    
- - Get the user #1:
+ - Get event #1:
  
    `GET http://localhost:3000/api/events/1`
  
- ...where the `1` is the user's id
+ ...where the `1` is the event's id
  
- - Update the user #1:
+ - Update event #1:
  
    `PUT http://localhost:3000/api/events/1`
  
    ...with appropriate body data
  
- - Add a user:
+ - Add an event:
  
    `POST http://localhost:3000/api/events`
  
    ...with the appropriate body data
  
- - Delete user #1:
+ - Delete event #1:
  
    `DELETE http://localhost:3000/api/events/1`
 
 ## Request Body Data / Schema
 
-When adding or updating a user the following fields should be sent:
+When adding or updating an event the following fields should be sent:
 
  - `title` - Title of the event, e.g. *"Jim's Halloween Party"*
  - `start_dt` - Start date and time of the event, e.g. *"2017-10-31 20:00:00-05:00"*
