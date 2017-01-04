@@ -4,9 +4,9 @@ Event-CRUD-CMS is a full stack web application to **C**reate, **R**ead, **U**pda
 
 ## Getting Started ##
 
- 1. Install and run the backend application
- 2. Install and run the frontend application
- 3. Test it out at http://localhost:3000
+ 1. Install and run the [backend](https://github.com/tw3/event-crud-cms/tree/master/backend) application
+ 2. Install and run the [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application
+ 3. Test it out at [http://localhost:3000](http://localhost:3000)
 
 ## License ##
 
