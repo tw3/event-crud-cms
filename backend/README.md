@@ -88,10 +88,6 @@ When adding or updating an event the following fields should be sent:
  - `description` - Description of the event, e.g. *"Jim is hosting a big party, all the ghosts and goblins are invited."*
  - `featured_bl` - Whether the event is featured, e.g. *"true"* or *"false"*
 
-        $ cd event-crud-cms/backend
-        $ npm install
-        $ npm start
-
 ## Database Support
 
 This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is an ORM that supports several databases incuding PostgreSQL, MySQL, MariaDB, SQLite and MSSQL.  This application is configured to work with PostgreSQL with this connection info:
