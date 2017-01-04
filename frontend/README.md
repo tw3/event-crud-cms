@@ -4,7 +4,7 @@ Event-CRUD-CMS-frontend is a front-end web application to **C**reate, **R**ead, 
 
 A demo of app will be posted as some point.
 
-## Notable Modules ##
+## Node-able Modules ##
 
  - [React](https://github.com/facebook/react) - renders the application in a component-based manner
  - [Redux](https://github.com/reactjs/redux) - manages the application state
