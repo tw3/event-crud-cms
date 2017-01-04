@@ -29,7 +29,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
  
   - Username: `postgres`
   - Password: `password`
-  - Port: 5432
+  - Port: `5432`
   
   If necessary you can change this my modifying the `sequelize` variable in `src/models/index.js` as described in the **Database Support** section below.
   
