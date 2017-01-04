@@ -13,17 +13,27 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
 ## Getting Started ##
 
- - Install [Node.js](https://nodejs.org/en/download/current/)
+ 1. Install [Node.js](https://nodejs.org/en/download/current/)
 
- - Install [Git](https://git-scm.com/downloads)
+ 2. Install [Git](https://git-scm.com/downloads)
+ 
+ 3. Install [Postgres](https://www.postgresql.org/download/)
+ 
+ This application expects to connect to a Postgres with this info:
+ 
+  - Username: `postgres`
+  - Password: `password`
+  - Port: 5432
+  
+  If necessary you can change this my modifying the `sequelize` variable in `src/models/index.js` as described in the Database Support section below.
 
- - Clone this repo
+ 3. Clone this repo
 
     ```sh
     $ git clone https://github.com/tw3/event-crud-cms.git event-crud-cms
     ```
 
- - Install and run this backend app
+ 4. Install and run this backend app
 
     ```sh
     $ cd event-crud-cms/backend
@@ -31,7 +41,7 @@ Event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
     $ npm start
     ```
 
- - Test out the service in a web browser or [Postman](https://www.getpostman.com/) or see it work from the corresonding [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application.
+ 5. Test out the service in a web browser or [Postman](https://www.getpostman.com/) or see it work from the corresonding [frontend](https://github.com/tw3/event-crud-cms/tree/master/frontend) application.
 
 ## Request API ##
 
@@ -54,7 +64,7 @@ When adding or updating a user the following fields should be sent:
 
 ## Database Support ##
 
-This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is an ORM that supports several databases incuding PostgreSQL, MySQL, MariaDB, SQLite and MSSQL.  This application is configured to work with PostgreSQL but this can easily be changed by updating the SQL connection string found in src/models/index.js:
+This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is an ORM that supports several databases incuding PostgreSQL, MySQL, MariaDB, SQLite and MSSQL.  This application is configured to work with PostgreSQL this can easily be changed by updating the SQL connection string found in src/models/index.js:
 
     ````javascript
     const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
