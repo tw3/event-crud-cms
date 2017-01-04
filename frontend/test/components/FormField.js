@@ -5,10 +5,10 @@ import FormField from '../../src/components/common/FormField';
 
 // unit tests for the FormField component
 describe('FormField component', () => {
-  describe('render()', () => {
-    it('should render the component', () => {
-      const wrapper = shallow(<FormField />);
-      assert.equal(wrapper.length, 1);
-    });
-  });
+	describe('render()', () => {
+		it('should render the component', () => {
+			const wrapper = shallow(<FormField />);
+			assert.equal(wrapper.length, 1);
+		});
+	});
 });

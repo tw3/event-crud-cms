@@ -21,13 +21,20 @@ export class ScheduledEventEdit extends React.Component {
 
 	// render
 	render() {
-		const {scheduledEvent, handleSubmit, error, invalid, submitting} = this.props;
+		const { scheduledEvent, handleSubmit, error, invalid, submitting } = this.props;
 		const bIsEdit = (scheduledEvent.id != null);
-		let c1, c2;
+		let c1;
+		let c2;
+
 		if (bIsEdit) {
-			c1 = (<Field component={FormField} name="created_at" label="Created" type="datetime" readonly={true} />);
-			c2 = (<Field component={FormField} name="updated_at" label="Last Updated" type="datetime" readonly={true} />);
+			c1 = (<Field
+				component={FormField} name="created_at" label="Created" type="datetime"
+				readonly={true} />);
+			c2 = (<Field
+				component={FormField} name="updated_at" label="Last Updated" type="datetime"
+				readonly={true} />);
 		}
+
 		return (
 			<div className="page-event-edit">
 				<PageHeader>{(bIsEdit ? 'Edit' : 'Add') + ' Event'}</PageHeader>
@@ -63,22 +70,22 @@ export class ScheduledEventEdit extends React.Component {
 
 	// submit the form
 	handleSubmit(values) {
-		const {dispatch} = this.props;
+		const { dispatch } = this.props;
 		return new Promise((resolve, reject) => {
 			// The DateTimePicker from react-widgets is really cool but it really bugs me that require
 			// a Date object as input but then set a string value when the value is changed
-			const scheduledEvent = {...values};
+			const scheduledEvent = { ...values };
 			scheduledEvent.id = scheduledEvent.id || 0;
 			dispatch({
 				type: 'EVENTS_ADD_EDIT',
 				scheduledEvent: scheduledEvent,
-				callbackError: (error) => {
-					reject(new SubmissionError({_error: error}));
-				},
+
+				callbackError: error => reject(new SubmissionError({ _error: error })),
+
 				callbackSuccess: () => {
 					dispatch(push('/'));
 					resolve();
-				}
+				},
 			});
 		});
 	}
@@ -86,23 +93,24 @@ export class ScheduledEventEdit extends React.Component {
 
 const validationsConfig = {
 	title: {
-		required: true
-	}
+		required: true,
+	},
 };
 
 // decorate the form component
 const ScheduledEventEditForm = reduxForm({
 	form: 'event-edit',
-	validate
+	validate,
 })(ScheduledEventEdit);
 
 // export the connected class
 function mapStateToProps(state, ownProps) {
 	let scheduledEvent = state.scheduledEvents.find(x => Number(x.id) === Number(ownProps.params.id));
+
 	if (scheduledEvent == null) { // add page...need to setup initial dates
 		// Start with a date/time at the next hour
 		const startDate = new Date();
-		startDate.setHours(startDate.getHours() + Math.round(startDate.getMinutes()/60));
+		startDate.setHours(startDate.getHours() + Math.round(startDate.getMinutes() / 60));
 		startDate.setMinutes(0);
 		const endDate = new Date(startDate.getTime());
 		endDate.setHours(endDate.getHours() + 1); // an hour after the start date
@@ -111,12 +119,14 @@ function mapStateToProps(state, ownProps) {
 			start_dt: startDate,
 			end_dt: endDate,
 			category: '',
-			description: ''
+			description: '',
 		};
 	}
+
 	return {
 		scheduledEvent: scheduledEvent,
-		initialValues: scheduledEvent
+		initialValues: scheduledEvent,
 	};
 }
+
 export default connect(mapStateToProps)(ScheduledEventEditForm);

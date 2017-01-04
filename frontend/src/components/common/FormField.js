@@ -11,9 +11,10 @@ export default class FormField extends React.Component {
 			const bConsiderValidation = ((bAlwaysValidate && meta.error) || meta.touched);
 			const validationState = bConsiderValidation ? (meta.error ? 'error' : 'success') : null;
 			return (
-				<div id={"ff-"+(input ? input.name : "foobar")}>
-					<FormGroup className={className}
-										 validationState={ validationState }>
+				<div id={'ff-' + (input ? input.name : 'foobar')}>
+					<FormGroup
+						className={ className }
+						validationState={ validationState }>
 						{this.content()}
 						<FormControl.Feedback />
 						<Row>
@@ -38,8 +39,8 @@ export default class FormField extends React.Component {
 
 	// the field content
 	content() {
-		const {theme, label} = this.props;
-		if ('other_theme' === theme) {
+		const { theme, label } = this.props;
+		if (theme === 'other_theme') {
 			// layout for some other theme
 		} else {
 			// default theme: 2col
@@ -54,14 +55,14 @@ export default class FormField extends React.Component {
 
 	// the field itself
 	field() {
-		const {input, componentClass, type, readonly, placeholder, children} = this.props;
-		if (type === "checkbox") {
+		const { input, componentClass, type, readonly, placeholder, children } = this.props;
+		if (type === 'checkbox') {
 			return (
 				<Checkbox {...input} >
 					{children}
 				</Checkbox>
 			);
-		} else if (type === "datetime") {
+		} else if (type === 'datetime') {
 			return (
 				<DateTimeField {...this.props} />
 			);
@@ -81,11 +82,11 @@ FormField.propTypes = {
 	input: PropTypes.object,
 	theme: PropTypes.string,  // 2col (default), etc
 	doValidate: PropTypes.bool, // true or false
-	label: PropTypes.any,  // the field text or a react component if we have html inside (empty string by default)
+	label: PropTypes.any,  // the field text or a react component if we have html inside
 	componentClass: PropTypes.string, // input (by default), textarea, select
 	type: PropTypes.string,   // input type: text (by default), password
 	readonly: PropTypes.bool, // render as normal text if true, otherwise render component
 	placeholder: PropTypes.string,    // input placeholder (empty string by default)
 	className: PropTypes.string,  // the class name (empty string by default),
-	bAlwaysValidate: PropTypes.bool  // true to always show the validations status, false to show after touched
+	bAlwaysValidate: PropTypes.bool,  // true to always show the validation status
 };

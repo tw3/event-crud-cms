@@ -5,11 +5,13 @@ import { ScheduledEventList } from '../../src/components/common/ScheduledEventLi
 
 // unit tests for the ScheduledEventList component
 describe('ScheduledEventList component', () => {
-  describe('render()', () => {
-    it('should render the progressbar', () => {
-      const props = {scheduledEvents: []};
-      const wrapper = shallow(<ScheduledEventList {...props} />);
-      assert.equal(wrapper.length, 1);
-    });
-  });
+	describe('render()', () => {
+		it('should render the progressbar', () => {
+			const props = {
+				scheduledEvents: [],
+			};
+			const wrapper = shallow(<ScheduledEventList {...props} />);
+			assert.equal(wrapper.length, 1);
+		});
+	});
 });

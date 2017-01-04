@@ -7,7 +7,7 @@ import { DateTimeFormatter } from './DateTimeField';
 export default class ScheduledEventListElement extends React.Component {
 	// render
 	render() {
-		const {scheduledEvent, showDelete} = this.props;
+		const { scheduledEvent, showDelete } = this.props;
 		return (
 			<tr>
 				<td>{scheduledEvent.id}</td>
@@ -16,7 +16,7 @@ export default class ScheduledEventListElement extends React.Component {
 				<td>{DateTimeFormatter.format(scheduledEvent.end_dt)}</td>
 				<td>{scheduledEvent.category}</td>
 				<td>{scheduledEvent.description}</td>
-				<td>{scheduledEvent.featured_bl ? "true" : "false"}</td>
+				<td>{scheduledEvent.featured_bl ? 'true' : 'false'}</td>
 				<td>
 					<Button bsSize="xsmall" className="event-delete" onClick={() => showDelete(scheduledEvent)}>
 						Delete <Glyphicon glyph="trash" />
@@ -30,5 +30,5 @@ export default class ScheduledEventListElement extends React.Component {
 // prop checks
 ScheduledEventListElement.propTypes = {
 	scheduledEvent: PropTypes.object.isRequired,
-	showDelete: PropTypes.func.isRequired
+	showDelete: PropTypes.func.isRequired,
 };

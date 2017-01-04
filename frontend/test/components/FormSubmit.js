@@ -5,10 +5,10 @@ import FormSubmit from '../../src/components/common/FormSubmit';
 
 // unit tests for the FormSubmit component
 describe('FormSubmit component', () => {
-  describe('render()', () => {
-    it('should render the component', () => {
-      const wrapper = shallow(<FormSubmit />);
-      assert.equal(wrapper.length, 1);
-    });
-  });
+	describe('render()', () => {
+		it('should render the component', () => {
+			const wrapper = shallow(<FormSubmit />);
+			assert.equal(wrapper.length, 1);
+		});
+	});
 });

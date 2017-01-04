@@ -1,20 +1,20 @@
 import axios from 'axios';
 
 // TODO: Read backend url from a config file
-const apiUrlOrigin = (typeof window === "undefined") ?
+const apiUrlOrigin = (typeof window === 'undefined') ?
 	'http://localhost:3000' :
-	[window.location.protocol, '//', window.location.hostname, ':3000'].join(""); // e.g. http://localhost:3000
+	[window.location.protocol, '//', window.location.hostname, ':3000'].join(''); // e.g. http://localhost:3000
 const apiConfig = {
-	getListUrl: () => apiUrlOrigin+'/api/events',
-	getUpdateUrl: (eventId) => apiUrlOrigin+'/api/events/'+eventId,
-	getAddUrl: () => apiUrlOrigin+'/api/events/',
-	getDeleteUrl: (eventId) => apiUrlOrigin+'/api/events/'+eventId
+	getListUrl: () => apiUrlOrigin + '/api/events',
+	getUpdateUrl: (eventId) => apiUrlOrigin + '/api/events/' + eventId,
+	getAddUrl: () => apiUrlOrigin + '/api/events/',
+	getDeleteUrl: (eventId) => apiUrlOrigin + '/api/events/' + eventId,
 };
 
 function convertServerScheduledEvents(serverScheduledEvents) {
-	return serverScheduledEvents.map((serverScheduledEvent) => {
-		return convertServerScheduledEvent(serverScheduledEvent);
-	});
+	return serverScheduledEvents.map(serverScheduledEvent =>
+		convertServerScheduledEvent(serverScheduledEvent)
+	);
 }
 
 function convertServerScheduledEvent(serverScheduledEvent) {

@@ -3,40 +3,41 @@ import ApiScheduledEvents from '../api/scheduledEvents';
 
 // fetch the event's list
 export function* scheduledEventsFetchList(action) {
-  // call the api to get the events list
-  const scheduledEvents = yield call(ApiScheduledEvents.getList);
+	// call the api to get the events list
+	const scheduledEvents = yield call(ApiScheduledEvents.getList);
 
-  // save the events in state
-  yield put({
-    type: 'EVENTS_LIST_SAVE',
-    scheduledEvents: scheduledEvents,
-  });
+	// save the events in state
+	yield put({
+		type: 'EVENTS_LIST_SAVE',
+		scheduledEvents: scheduledEvents,
+	});
 }
 
 // add/edit an event
 export function* scheduledEventsAddEdit(action) {
-  // call the api to add/edit the event
-  const newScheduledEvent = yield call(ApiScheduledEvents.addEdit, action.scheduledEvent); // TODO switch to using "payload"
-  //return action.callbackError("Some error");   // show an error when the API fails
+	// call the api to add/edit the event
+	const newScheduledEvent = yield call(ApiScheduledEvents.addEdit, action.scheduledEvent);
 
-  // update the state by adding/editing the event
-  yield put({
-    type: action.scheduledEvent.id ? 'EVENTS_EDIT_SAVE' : 'EVENTS_ADD_SAVE',
-    scheduledEvent: newScheduledEvent || action.scheduledEvent,
-  });
+	//return action.callbackError("Some error");   // show an error when the API fails
 
-  // success
-  action.callbackSuccess();
+	// update the state by adding/editing the event
+	yield put({
+		type: action.scheduledEvent.id ? 'EVENTS_EDIT_SAVE' : 'EVENTS_ADD_SAVE',
+		scheduledEvent: newScheduledEvent || action.scheduledEvent,
+	});
+
+	// success
+	action.callbackSuccess();
 }
 
 // delete an event
 export function* scheduledEventsDelete(action) {
-  // call the api to delete the event
-  yield call(ApiScheduledEvents.delete, action.eventId);
+	// call the api to delete the event
+	yield call(ApiScheduledEvents.delete, action.eventId);
 
-  // update the state by removing the event
-  yield put({
-    type: 'EVENTS_DELETE_SAVE',
-    eventId: action.eventId,
-  });
+	// update the state by removing the event
+	yield put({
+		type: 'EVENTS_DELETE_SAVE',
+		eventId: action.eventId,
+	});
 }

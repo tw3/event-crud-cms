@@ -5,11 +5,14 @@ import ScheduledEventListElement from '../../src/components/common/ScheduledEven
 
 // unit tests for the ScheduledEventListElement component
 describe('ScheduledEventListElement component', () => {
-  describe('render()', () => {
-    it('should render the component', () => {
-      const props = {scheduledEvent: {}, showDelete: ()=>{}};
-      const wrapper = shallow(<ScheduledEventListElement {...props} />);
-      assert.equal(wrapper.length, 1);
-    });
-  });
+	describe('render()', () => {
+		it('should render the component', () => {
+			const props = {
+				scheduledEvent: {},
+				showDelete: () => {},
+			};
+			const wrapper = shallow(<ScheduledEventListElement {...props} />);
+			assert.equal(wrapper.length, 1);
+		});
+	});
 });

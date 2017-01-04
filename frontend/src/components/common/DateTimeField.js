@@ -2,31 +2,35 @@ import React from 'react';
 import { DateTimePicker } from 'react-widgets';
 import Moment from 'moment';
 
-export const timeFormat = "h:mm a";
-export const dateTimeFormat = "M/D/YY " + timeFormat;
+export const timeFormat = 'h:mm a';
+export const dateTimeFormat = 'M/D/YY ' + timeFormat;
 
 export class DateTimeFormatter {
 	static format(val) {
-		return Moment(val).format(dateTimeFormat)
+		return Moment(val).format(dateTimeFormat);
 	}
-	static formatUTC(utc) {
-		return Moment.utc(val).format(dateTimeFormat)
+
+	static formatUTC(utcVal) {
+		return Moment.utc(utcVal).format(dateTimeFormat);
 	}
+
 	static getUTC(val) {
 		return +Moment(val, dateTimeFormat).utc();
 	}
+
 	static normalize(date) {
-		if (typeof date === "string") {
+		if (typeof date === 'string') {
 			// need to convert to date object
-			date = Moment(date, dateTimeFormat).toDate()
+			date = Moment(date, dateTimeFormat).toDate();
 		}
+
 		return date;
 	}
 }
 
 export class DateTimeField extends React.Component {
 	render() {
-		const {input, componentClass, type, readonly, placeholder, children} = this.props;
+		const { input, componentClass, type, readonly, placeholder, children } = this.props;
 		if (readonly) {
 			// Show date/time text
 			return (
@@ -36,14 +40,15 @@ export class DateTimeField extends React.Component {
 			);
 		} else {
 			// Construct params for DateTimePicker
-			const newProps = {...input};
+			const newProps = { ...input };
+
 			// Set value as defaultValue and remove value property
 			newProps.defaultValue = newProps.value;
 			delete newProps.value;
+
 			// Send only the date object when the date changes
-			newProps.onChange = (newDate, newDateStr) => {
-				input.onChange(newDate);
-			};
+			newProps.onChange = newDate => input.onChange(newDate);
+
 			return (
 				<DateTimePicker format={dateTimeFormat} timeFormat={timeFormat} {...newProps} />
 			);
