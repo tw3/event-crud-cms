@@ -83,6 +83,7 @@ This application uses [Sequelize](http://docs.sequelizejs.com/en/v3/) which is a
  - Password: `password`
  - Port: `5432`
 
+This configuration can be easily changed by updating the `sequelize` SQL connection string found in src/models/index.js:
 
     ```javascript
     const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/event_db');
