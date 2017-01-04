@@ -11,9 +11,10 @@ export default function scheduledEvents(state = {
 			return [...state, action.scheduledEvent]; // add new event to the end of the list
 
 		case 'EVENTS_EDIT_SAVE':
-			return state.map(scheduledEvent =>
-				Number(scheduledEvent.id) === Number(action.scheduledEvent.id) ? {...action.scheduledEvent} : scheduledEvent
-			);
+			return state.map(scheduledEvent => {
+				var newScheduledEvent = action.scheduledEvent;
+				return Number(scheduledEvent.id) === Number(newScheduledEvent.id) ? {...newScheduledEvent} : scheduledEvent;
+			});
 
 		case 'EVENTS_DELETE_SAVE':
 			return state.filter(scheduledEvent =>
