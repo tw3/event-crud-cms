@@ -11,6 +11,7 @@ A demo of app will be posted as some point.
  - [React Router](https://github.com/reactjs/react-router) - manages the routing state
  - [Redux Form](https://github.com/erikras/redux-form) - manages the form state, submission, and validation
  - [Redux Saga](https://github.com/redux-saga/redux-saga) - manages asynchronous state changes
+ - [Redux Logger](https://github.com/evgenyrodionov/redux-logger) - logger middleware for Redux, useful for debugging
  - [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) - manages style/layout
  - [React Widgets](https://github.com/jquense/react-widgets) - provides a date/time picker
  - [Babel](https://github.com/babel/babel) - transpiles ES6 JavaScript code to ES5
