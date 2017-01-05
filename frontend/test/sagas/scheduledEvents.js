@@ -37,10 +37,15 @@ describe('ScheduledEvents saga', () => {
 				call(ApiScheduledEvents.addEdit, action.scheduledEvent));
 		});
 
+		it('should return the ApiScheduledEvents.getList call', () => {
+			assert.deepEqual(generator.next().value,
+				call(ApiScheduledEvents.getList));
+		});
+
 		it('should return the EVENTS_ADD_SAVE action', () => {
 			assert.deepEqual(generator.next().value, put({
 				type: 'EVENTS_ADD_SAVE',
-				scheduledEvent: action.scheduledEvent,
+				scheduledEvents: undefined,
 			}));
 		});
 
@@ -61,10 +66,15 @@ describe('ScheduledEvents saga', () => {
 				action.scheduledEvent));
 		});
 
+		it('should return the ApiScheduledEvents.getList call', () => {
+			assert.deepEqual(generator.next().value,
+				call(ApiScheduledEvents.getList));
+		});
+
 		it('should return the EVENTS_EDIT_SAVE action', () => {
 			assert.deepEqual(generator.next().value, put({
 				type: 'EVENTS_EDIT_SAVE',
-				scheduledEvent: action.scheduledEvent,
+				scheduledEvents: undefined,
 			}));
 		});
 

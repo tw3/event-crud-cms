@@ -18,12 +18,15 @@ export function* scheduledEventsAddEdit(action) {
 	// call the api to add/edit the event
 	const newScheduledEvent = yield call(ApiScheduledEvents.addEdit, action.scheduledEvent);
 
-	//return action.callbackError("Some error");   // show an error when the API fails
+	//return action.callbackError('Some error');   // show an error when the API fails
+
+	// re-fetch the events list
+	const scheduledEvents = yield call(ApiScheduledEvents.getList);
 
 	// update the state by adding/editing the event
 	yield put({
 		type: action.scheduledEvent.id ? 'EVENTS_EDIT_SAVE' : 'EVENTS_ADD_SAVE',
-		scheduledEvent: newScheduledEvent || action.scheduledEvent,
+		scheduledEvents: scheduledEvents,
 	});
 
 	// success

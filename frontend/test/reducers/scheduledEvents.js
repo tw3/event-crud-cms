@@ -29,18 +29,6 @@ const otherEvent2 = {
 	updated_at: new Date('February 1, 2017 14:00:00'),
 };
 
-const changedEvent2 = {
-	id: 2,
-	title: 'Changed title',
-	start_dt: new Date('March 15, 2017 11:00:00'),
-	end_dt: new Date('March 15, 2017 12:0:00'),
-	category: 'Changed category',
-	description: 'Changed category',
-	featured_bl: 'true',
-	created_at: new Date('March 1, 2017 13:00:00'),
-	updated_at: new Date('March 1, 2017 14:00:00'),
-};
-
 function shallowClone(obj) {
 	return Object.assign({}, obj);
 }
@@ -62,9 +50,9 @@ describe('ScheduledEvents reducer', () => {
 	describe('EVENTS_ADD_SAVE', () => {
 		it('should return a new event array element', () => {
 			assert.deepEqual(
-				scheduledEvents([shallowClone(someEvent1)], {
+				scheduledEvents({}, {
 					type: 'EVENTS_ADD_SAVE',
-					scheduledEvent: shallowClone(otherEvent2),
+					scheduledEvents: [shallowClone(someEvent1), shallowClone(otherEvent2)],
 				}), [shallowClone(someEvent1), shallowClone(otherEvent2)]
 			);
 		});
@@ -73,10 +61,10 @@ describe('ScheduledEvents reducer', () => {
 	describe('EVENTS_EDIT_SAVE', () => {
 		it('should return an edited event array element', () => {
 			assert.deepEqual(
-				scheduledEvents([shallowClone(someEvent1), shallowClone(otherEvent2)], {
+				scheduledEvents({}, {
 					type: 'EVENTS_EDIT_SAVE',
-					scheduledEvent: shallowClone(changedEvent2),
-				}), [shallowClone(someEvent1), shallowClone(changedEvent2)]
+					scheduledEvents: [shallowClone(someEvent1), shallowClone(otherEvent2)],
+				}), [shallowClone(someEvent1), shallowClone(otherEvent2)]
 			);
 		});
 	});
