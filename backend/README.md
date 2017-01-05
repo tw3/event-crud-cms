@@ -40,12 +40,11 @@ event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
  6. Run the `init.sql` SQL script to initialize the database
  
-        $ cd event-crud-cms/backend/init
-        $ psql -f init.sql  
+        $ cd event-crud-cms/backend
+        $ psql -f init/init.sql  
     
  7. Install and run the backend app
 
-        $ cd event-crud-cms/backend
         $ npm install
         $ npm start
 
