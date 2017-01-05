@@ -47,9 +47,8 @@ event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
     
  7. Install and run the backend app
 
-        $ cd ../
-        $ pwd
-        (event-crud-cms/backend)
+        $ cd ../../..
+        $ cd event-crud-cms/backend
         $ npm install
         $ npm start
 
