@@ -14,6 +14,7 @@ A demo of app will be posted as some point.
  - [Redux Logger](https://github.com/evgenyrodionov/redux-logger) - logger middleware for Redux, useful for debugging
  - [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) - manages style/layout
  - [React Widgets](https://github.com/jquense/react-widgets) - provides a date/time picker
+ - [Validate.js](https://github.com/ansman/validate.js) - validates the form data
  - [Babel](https://github.com/babel/babel) - transpiles ES6 JavaScript code to ES5
  - [Sass](https://github.com/sass/node-sass) - performs CSS preprocessing
  - [Webpack](https://github.com/webpack/webpack) - bundles the content
@@ -24,9 +25,9 @@ A demo of app will be posted as some point.
  1. Follow the instructions to install and run the [backend](https://github.com/tw3/event-crud-cms/tree/master/backend) application
 
  2. Open a separate command prompt and navigate to the `event-crud-cms` directory
- 
+
  3. Install this frontend application
- 
+
      ```sh
     $ cd frontend
     $ npm install
@@ -55,15 +56,11 @@ A demo of app will be posted as some point.
 ## Known Bugs and Possible Improvements ##
 
  - AJAX/network errors are not handled very well
- - The app does not re-request the list data after an add or edit
- so the new or updated item may appear out of place since featured
- items are shown first
  - There should be a cancel button on the add/edit form
  - The buttons on the add/edit form should have better alignment
  - A card or stacked layout may be better than a table layout
  - The featured flag could be changed using a selectable "star"
  widget on the list page (similar to the star widget in Gmail)
- -
 
 ## Coding Style Guide ##
 
