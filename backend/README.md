@@ -17,7 +17,7 @@ event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead,
 
  2. Install [Git](https://git-scm.com/downloads) (if necessary)
  
- 3. Clone this repo
+ 3. Open a terminal / command prompt and clone this repo
 
         $ git clone https://github.com/tw3/event-crud-cms.git event-crud-cms
 
