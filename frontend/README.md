@@ -28,7 +28,7 @@ A demo of app will be posted as some point.
  3. Install this frontend application
  
      ```sh
-    $ cd frontend
+    $ cd event-crud-cms/frontend
     $ npm install
     ```
 
