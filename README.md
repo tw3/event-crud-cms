@@ -1,8 +1,8 @@
-## Event-CRUD-CMS ##
+## Event-CRUD-CMS
 
 Event-CRUD-CMS is a full stack web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  The front-end component uses [React.js](https://facebook.github.io/react/) and [Redux](http://redux.js.org/) (among other technologies) to display and update the data as a single page application.  The data for the application is retrieved from a back-end component that uses [Express](http://expressjs.com/), [Seqeulize](http://sequelizejs.com), and [PostgreSQL](https://www.postgresql.org/).
 
-## Getting Started ##
+## Getting Started
 
  1. Install [Node.js](https://nodejs.org/en/download/current/) (if necessary)
  
@@ -22,6 +22,10 @@ Event-CRUD-CMS is a full stack web application to **C**reate, **R**ead, **U**pda
  
  7. Test it out at [http://localhost:3000](http://localhost:3000)
 
-## License ##
+## Screenshots
+
+![](http://imgur.com/ZEboqAn)
+
+## License
 
 This project is licensed under the MIT license, Copyright (c) 2017 Ted Weatherly.
