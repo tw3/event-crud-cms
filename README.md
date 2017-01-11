@@ -24,7 +24,7 @@ Event-CRUD-CMS is a full stack web application to **C**reate, **R**ead, **U**pda
 
 ## Screenshots
 
-![](http://i.imgur.com/Bb1OC47.png)
+![](http://i.imgur.com/etQuo53.png)
 
 ## License
 
