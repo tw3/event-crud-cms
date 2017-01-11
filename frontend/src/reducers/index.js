@@ -17,5 +17,5 @@ export const reducers = combineReducers({
 			}
 		},
 	}),
-	scheduledEvents: scheduledEvents,
+	scheduledEvents,
 });

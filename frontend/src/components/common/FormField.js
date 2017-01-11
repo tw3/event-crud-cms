@@ -4,17 +4,61 @@ import { DateTimeField } from './DateTimeField';
 
 // Form field component
 export default class FormField extends React.Component {
+	// the field content
+	content() {
+		const { theme, label } = this.props;
+		if (theme === 'other_theme') {
+			// layout for some other theme
+		}
+		// default theme: 2col
+		return (
+			<Row>
+				<Col sm={3}>{label}</Col>
+				<Col sm={9}>{this.field()}</Col>
+			</Row>
+		);
+	}
+
+	// the field itself
+	field() {
+		const { input, componentClass, type, placeholder, children } = this.props;
+		let elem;
+		if (type === 'checkbox') {
+			elem = (
+				<Checkbox {...input} >
+					{children}
+				</Checkbox>
+			);
+		} else if (type === 'datetime') {
+			elem = (
+				<DateTimeField {...this.props} />
+			);
+		} else {
+			elem = (
+				<FormControl
+					{...input}
+					componentClass={componentClass} type={type} placeholder={placeholder}
+				>
+					{children}
+				</FormControl>
+			);
+		}
+		return elem;
+	}
+
 	// render
 	render() {
 		const { input, className, doValidate, meta, bAlwaysValidate } = this.props;
 		if (doValidate) {
 			const bConsiderValidation = ((bAlwaysValidate && meta.error) || meta.touched);
-			const validationState = bConsiderValidation ? (meta.error ? 'error' : 'success') : null;
+			let validationState = null;
+			if (bConsiderValidation) validationState = (meta.error ? 'error' : 'success');
 			return (
-				<div id={'ff-' + (input ? input.name : 'foobar')}>
+				<div id={`ff-${(input ? input.name : 'default')}`}>
 					<FormGroup
-						className={ className }
-						validationState={ validationState }>
+						className={className}
+						validationState={validationState}
+					>
 						{this.content()}
 						<FormControl.Feedback />
 						<Row>
@@ -28,51 +72,13 @@ export default class FormField extends React.Component {
 					</FormGroup>
 				</div>
 			);
-		} else {
-			return (
-				<FormGroup className={className}>
-					{this.content()}
-				</FormGroup>
-			);
 		}
-	}
 
-	// the field content
-	content() {
-		const { theme, label } = this.props;
-		if (theme === 'other_theme') {
-			// layout for some other theme
-		} else {
-			// default theme: 2col
-			return (
-				<Row>
-					<Col sm={3}>{label}</Col>
-					<Col sm={9}>{this.field()}</Col>
-				</Row>
-			);
-		}
-	}
-
-	// the field itself
-	field() {
-		const { input, componentClass, type, readonly, placeholder, children } = this.props;
-		if (type === 'checkbox') {
-			return (
-				<Checkbox {...input} >
-					{children}
-				</Checkbox>
-			);
-		} else if (type === 'datetime') {
-			return (
-				<DateTimeField {...this.props} />
-			);
-		} else {
-			return (
-				<FormControl {...input} componentClass={componentClass} type={type} placeholder={placeholder}>
-					{children}
-				</FormControl>
-			);
-		}
+		return (
+			<FormGroup className={className}>
+				{this.content()}
+			</FormGroup>
+		);
 	}
 }
 
@@ -89,4 +95,5 @@ FormField.propTypes = {
 	placeholder: PropTypes.string,    // input placeholder (empty string by default)
 	className: PropTypes.string,  // the class name (empty string by default),
 	bAlwaysValidate: PropTypes.bool,  // true to always show the validation status
+	children: PropTypes.node,
 };

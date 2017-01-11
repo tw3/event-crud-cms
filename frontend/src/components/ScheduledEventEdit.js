@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { Field, SubmissionError, reduxForm } from 'redux-form';
@@ -19,55 +19,6 @@ export class ScheduledEventEdit extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	// render
-	render() {
-		const { scheduledEvent, handleSubmit, error, invalid, submitting } = this.props;
-		const bIsEdit = (scheduledEvent.id != null);
-		let c1;
-		let c2;
-
-		if (bIsEdit) {
-			c1 = (<Field
-				component={FormField} name="created_at" label="Created" type="datetime"
-				readonly={true} />);
-			c2 = (<Field
-				component={FormField} name="updated_at" label="Last Updated" type="datetime"
-				readonly={true} />);
-		}
-
-		return (
-			<div className="page-event-edit">
-				<PageHeader>{(bIsEdit ? 'Edit' : 'Add') + ' Event'}</PageHeader>
-				<Form horizontal onSubmit={handleSubmit(this.handleSubmit)}>
-					<Field
-						component={FormField} name="title" label="Title"
-						doValidate={true} bAlwaysValidate={bIsEdit} />
-					<Field
-						component={FormField} name="start_dt" label="Start Date/Time" type="datetime"
-						normalize={value => DateTimeFormatter.normalize(value)}
-						doValidate={true} />
-					<Field
-						component={FormField} name="end_dt" label="End Date/Time" type="datetime"
-						normalize={value => DateTimeFormatter.normalize(value)}
-						doValidate={true} />
-					<Field
-						component={FormField} name="category" label="Category"
-						doValidate={true} bAlwaysValidate={bIsEdit} />
-					<Field
-						component={FormField} name="description" label="Description" componentClass="textarea"
-						doValidate={true} bAlwaysValidate={bIsEdit} />
-					<Field component={FormField} name="featured_bl" label="Featured" type="checkbox" />
-					{c1}
-					{c2}
-					<FormSubmit
-						error={error} invalid={invalid} submitting={submitting} buttonSaveLoading="Saving..."
-						buttonSave="Save Event"/>
-					{ /* <FormSubmit buttonSave="Cancel" /> */ }
-				</Form>
-			</div>
-		);
-	}
-
 	// submit the form
 	handleSubmit(values) {
 		const { dispatch } = this.props;
@@ -78,7 +29,7 @@ export class ScheduledEventEdit extends React.Component {
 			scheduledEvent.id = scheduledEvent.id || 0;
 			dispatch({
 				type: 'EVENTS_ADD_EDIT',
-				scheduledEvent: scheduledEvent,
+				scheduledEvent,
 
 				callbackError: error => reject(new SubmissionError({ _error: error })),
 
@@ -89,12 +40,74 @@ export class ScheduledEventEdit extends React.Component {
 			});
 		});
 	}
+
+	// render
+	render() {
+		const { scheduledEvent, handleSubmit, error, invalid, submitting } = this.props;
+		const bIsEdit = (scheduledEvent.id != null);
+		let c1;
+		let c2;
+
+		if (bIsEdit) {
+			c1 = (
+				<Field
+					component={FormField} name="created_at" label="Created" type="datetime"
+					readonly
+				/>
+			);
+			c2 = (
+				<Field
+					component={FormField} name="updated_at" label="Last Updated" type="datetime"
+					readonly
+				/>);
+		}
+
+		return (
+			<div className="page-event-edit">
+				<PageHeader>{bIsEdit ? 'Edit Event' : 'Add Event'}</PageHeader>
+				<Form horizontal onSubmit={handleSubmit(this.handleSubmit)}>
+					<Field
+						component={FormField} name="title" label="Title"
+						doValidate bAlwaysValidate={bIsEdit}
+					/>
+					<Field
+						component={FormField} name="start_dt" label="Start Date/Time" type="datetime"
+						normalize={value => DateTimeFormatter.normalize(value)}
+						doValidate
+					/>
+					<Field
+						component={FormField} name="end_dt" label="End Date/Time" type="datetime"
+						normalize={value => DateTimeFormatter.normalize(value)}
+						doValidate
+					/>
+					<Field
+						component={FormField} name="category" label="Category"
+						doValidate bAlwaysValidate={bIsEdit}
+					/>
+					<Field
+						component={FormField} name="description" label="Description" componentClass="textarea"
+						doValidate bAlwaysValidate={bIsEdit}
+					/>
+					<Field component={FormField} name="featured_bl" label="Featured" type="checkbox" />
+					{c1}
+					{c2}
+					<FormSubmit
+						error={error} invalid={invalid} submitting={submitting}
+						buttonSaveLoading="Saving..." buttonSave="Save Event"
+					/>
+				</Form>
+			</div>
+		);
+	}
 }
 
-const validationsConfig = {
-	title: {
-		required: true,
-	},
+ScheduledEventEdit.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	scheduledEvent: PropTypes.object,
+	handleSubmit: PropTypes.func,
+	error: PropTypes.string,  // redux-form general `_error` message
+	invalid: PropTypes.bool,  // redux-form invalid prop
+	submitting: PropTypes.bool,   // redux-form invalid submitting
 };
 
 // decorate the form component
@@ -124,7 +137,7 @@ function mapStateToProps(state, ownProps) {
 	}
 
 	return {
-		scheduledEvent: scheduledEvent,
+		scheduledEvent,
 		initialValues: scheduledEvent,
 	};
 }

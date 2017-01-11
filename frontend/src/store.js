@@ -8,7 +8,7 @@ import { reducers } from './reducers/index';
 import { sagas } from './sagas/index';
 
 // add the middlewares
-let middlewares = [];
+const middlewares = [];
 
 // add the router middleware
 middlewares.push(routerMiddleware(browserHistory));

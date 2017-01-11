@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { ProgressBar } from 'react-bootstrap';
 import Menu from './common/Menu';
@@ -16,6 +16,7 @@ export class App extends React.Component {
 	render() {
 		// show the loading state while we wait for the app to load
 		const { scheduledEvents, children } = this.props;
+
 		if (!scheduledEvents.length) {
 			return (
 				<ProgressBar active now={100} />
@@ -32,15 +33,19 @@ export class App extends React.Component {
 					{children}
 				</div>
 				<div className="footer">
-					<img src="/media/logo.svg" />
-          <span>
-						Events CRUD CMS
-          </span>
+					<img src="/media/logo.svg" alt="Events CRUD CMS" />
+					<span>Events CRUD CMS</span>
 				</div>
 			</div>
 		);
 	}
 }
+
+App.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	scheduledEvents: PropTypes.array,
+	children: PropTypes.node,
+};
 
 // export the connected class
 function mapStateToProps(state) {

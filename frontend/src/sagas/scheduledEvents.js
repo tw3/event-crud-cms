@@ -2,23 +2,23 @@ import { call, put } from 'redux-saga/effects';
 import ApiScheduledEvents from '../api/scheduledEvents';
 
 // fetch the event's list
-export function* scheduledEventsFetchList(action) {
+export function* scheduledEventsFetchList() { /* param: action */
 	// call the api to get the events list
 	const scheduledEvents = yield call(ApiScheduledEvents.getList);
 
 	// save the events in state
 	yield put({
 		type: 'EVENTS_LIST_SAVE',
-		scheduledEvents: scheduledEvents,
+		scheduledEvents,
 	});
 }
 
 // add/edit an event
 export function* scheduledEventsAddEdit(action) {
 	// call the api to add/edit the event
-	const newScheduledEvent = yield call(ApiScheduledEvents.addEdit, action.scheduledEvent);
+	yield call(ApiScheduledEvents.addEdit, action.scheduledEvent); // returns a newScheduledEvent
 
-	//return action.callbackError('Some error');   // show an error when the API fails
+	// return action.callbackError('Some error');   // show an error when the API fails
 
 	// re-fetch the events list
 	const scheduledEvents = yield call(ApiScheduledEvents.getList);
@@ -26,7 +26,7 @@ export function* scheduledEventsAddEdit(action) {
 	// update the state by adding/editing the event
 	yield put({
 		type: action.scheduledEvent.id ? 'EVENTS_EDIT_SAVE' : 'EVENTS_ADD_SAVE',
-		scheduledEvents: scheduledEvents,
+		scheduledEvents,
 	});
 
 	// success

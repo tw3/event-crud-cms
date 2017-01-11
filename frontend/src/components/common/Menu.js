@@ -3,22 +3,21 @@ import { Nav, NavItem, Glyphicon } from 'react-bootstrap';
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 
 // Menu component
-export default class Menu extends React.Component {
-	// render
-	render() {
-		return (
-			<Nav bsStyle="pills">
-				<IndexLinkContainer to="/">
-					<NavItem>
-						Home
-					</NavItem>
-				</IndexLinkContainer>
-				<LinkContainer to="/event-edit">
-					<NavItem>
-						Add Event <Glyphicon glyph="plus-sign" />
-					</NavItem>
-				</LinkContainer>
-			</Nav>
-		);
-	}
-}
+const Menu = () => {
+	return (
+		<Nav bsStyle="pills">
+			<IndexLinkContainer to="/">
+				<NavItem>
+					Home
+				</NavItem>
+			</IndexLinkContainer>
+			<LinkContainer to="/event-edit">
+				<NavItem>
+					Add Event <Glyphicon glyph="plus-sign" />
+				</NavItem>
+			</LinkContainer>
+		</Nav>
+	);
+};
+
+export default Menu;

@@ -9,7 +9,6 @@ describe('App component', () => {
 		it('should render the component', () => {
 			const props = {
 				dispatch: () => {},
-
 				scheduledEvents: [],
 			};
 			const wrapper = shallow(<App {...props} />);

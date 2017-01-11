@@ -2,28 +2,25 @@ import React, { PropTypes } from 'react';
 import { FormGroup, HelpBlock, Button } from 'react-bootstrap';
 
 // Form submit component
-export default class FormSubmit extends React.Component {
-	// render
-	render() {
-		const { error, invalid, submitting, buttonSaveLoading, buttonSave } = this.props;
-		return (
-			<div>
-				{error &&
-				<FormGroup validationState="error">
-					<HelpBlock>{error}</HelpBlock>
-				</FormGroup>}
+const FormSubmit = (props) => {
+	const { error, invalid, submitting } = props;
+	let { buttonSaveLoading, buttonSave } = props;
+	buttonSaveLoading = buttonSaveLoading || 'Saving...';
+	buttonSave = buttonSave || 'Save';
+	return (
+		<div>
+			{error && <FormGroup validationState="error">
+				<HelpBlock>{error}</HelpBlock>
+			</FormGroup>}
 
-				<FormGroup className="submit">
-					<Button type="submit" bsStyle="primary" disabled={invalid || submitting}>
-						{submitting ?
-							(buttonSaveLoading ? buttonSaveLoading : 'Saving...') :
-							(buttonSave ? buttonSave : 'Save')}
-					</Button>
-				</FormGroup>
-			</div>
-		);
-	}
-}
+			<FormGroup className="submit">
+				<Button type="submit" bsStyle="primary" disabled={invalid || submitting}>
+					{submitting ? buttonSaveLoading : buttonSave}
+				</Button>
+			</FormGroup>
+		</div>
+	);
+};
 
 // prop checks
 FormSubmit.propTypes = {
@@ -33,3 +30,5 @@ FormSubmit.propTypes = {
 	buttonSaveLoading: PropTypes.string, // save button loading text, default is "Saving..."
 	buttonSave: PropTypes.string,    // save button text, default is "Save"
 };
+
+export default FormSubmit;

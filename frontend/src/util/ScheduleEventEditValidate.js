@@ -16,7 +16,7 @@ export default values => {
 			},
 			format: {
 				// only allow safe characters, must start with a letter
-				pattern: /^[a-zA-Z\u00C0-\u02AF][a-zA-Z\u00C0-\u02AF0-9\.-_ \"']+$/,
+				pattern: /^[a-zA-Z\u00C0-\u02AF][a-zA-Z\u00C0-\u02AF0-9\.-_ "']+$/,
 				message: 'must start with a letter and can only contain safe characters',
 			},
 		},
@@ -36,7 +36,7 @@ export default values => {
 			},
 			format: {
 				// only allow safe characters, must start with a letter
-				pattern: /^[a-zA-Z\u00C0-\u02AF][a-zA-Z\u00C0-\u02AF0-9\.-_ \"']+$/,
+				pattern: /^[a-zA-Z\u00C0-\u02AF][a-zA-Z\u00C0-\u02AF0-9\.-_ "']+$/,
 				message: 'must start with a letter and can only contain safe characters',
 			},
 		},
@@ -56,11 +56,11 @@ export default values => {
 	}
 
 	// only show one error at a time
-	for (let key in errors) {
-		if (errors.hasOwnProperty(key)) {
+	if (errors != null) {
+		Object.keys(errors).forEach((key) => {
 			const val = errors[key];
 			if (Array.isArray(val)) errors[key] = val[0];
-		}
+		});
 	}
 
 	return errors;

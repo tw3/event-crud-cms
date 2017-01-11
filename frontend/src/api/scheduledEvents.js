@@ -1,4 +1,5 @@
 import axios from 'axios';
+import logger from 'js-logger';
 
 // TODO: Read backend url from a config file
 const apiUrlOrigin = (typeof window === 'undefined') ?
@@ -9,17 +10,11 @@ const apiUrlOrigin = (typeof window === 'undefined') ?
 		':3000', // the server port
 	].join('');
 const apiConfig = {
-	getListUrl: () => apiUrlOrigin + '/api/events',
-	getUpdateUrl: (eventId) => apiUrlOrigin + '/api/events/' + eventId,
-	getAddUrl: () => apiUrlOrigin + '/api/events/',
-	getDeleteUrl: (eventId) => apiUrlOrigin + '/api/events/' + eventId,
+	getListUrl: () => `${apiUrlOrigin}/api/events`,
+	getUpdateUrl: (eventId) => `${apiUrlOrigin}/api/events/${eventId}`,
+	getAddUrl: () => `${apiUrlOrigin}/api/events/`,
+	getDeleteUrl: (eventId) => `${apiUrlOrigin}/api/events/${eventId}`,
 };
-
-function convertServerScheduledEvents(serverScheduledEvents) {
-	return serverScheduledEvents.map(serverScheduledEvent =>
-		convertServerScheduledEvent(serverScheduledEvent)
-	);
-}
 
 function convertServerScheduledEvent(serverScheduledEvent) {
 	const scheduledEvent = serverScheduledEvent; // no need to clone
@@ -31,18 +26,24 @@ function convertServerScheduledEvent(serverScheduledEvent) {
 	return scheduledEvent;
 }
 
+function convertServerScheduledEvents(serverScheduledEvents) {
+	return serverScheduledEvents.map(serverScheduledEvent =>
+		convertServerScheduledEvent(serverScheduledEvent)
+	);
+}
+
 // API ScheduledEvents static class
 export default class ApiScheduledEvents {
 	// get a list of events
 	static getList() {
 		return new Promise(resolve => {
 			axios.get(apiConfig.getListUrl())
-				.then(function (response) {
-					console.log(response);
+				.then((response) => {
+					logger.debug(response);
 					resolve(convertServerScheduledEvents(response.data.data));
 				})
-				.catch(function (error) { // TODO handle error scenario
-					console.log(error);
+				.catch((error) => { // TODO handle error scenario
+					logger.debug(error);
 					resolve();
 				});
 		});
@@ -54,23 +55,23 @@ export default class ApiScheduledEvents {
 			if (scheduledEvent.id) {
 				// Update
 				axios.put(apiConfig.getUpdateUrl(scheduledEvent.id), scheduledEvent)
-					.then(function (response) {
-						console.log(response);
+					.then((response) => {
+						logger.debug(response);
 						resolve();
 					})
-					.catch(function (error) { // TODO handle error scenario
-						console.log(error);
+					.catch((error) => { // TODO handle error scenario
+						logger.debug(error);
 						resolve();
 					});
 			} else {
 				// Add
 				axios.post(apiConfig.getAddUrl(), scheduledEvent)
-					.then(function (response) {
-						console.log(response);
+					.then((response) => {
+						logger.debug(response);
 						resolve(convertServerScheduledEvent(response.data.data));
 					})
-					.catch(function (error) { // TODO handle error scenario
-						console.log(error);
+					.catch((error) => { // TODO handle error scenario
+						logger.debug(error);
 						resolve();
 					});
 			}
@@ -81,12 +82,12 @@ export default class ApiScheduledEvents {
 	static delete(eventId) {
 		return new Promise(resolve => {
 			axios.delete(apiConfig.getDeleteUrl(eventId))
-				.then(function (response) {
-					console.log(response);
+				.then((response) => {
+					logger.debug(response);
 					resolve();
 				})
-				.catch(function (error) { // TODO handle error scenario
-					console.log(error);
+				.catch((error) => { // TODO handle error scenario
+					logger.debug(error);
 					resolve();
 				});
 		});

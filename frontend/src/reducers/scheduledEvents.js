@@ -1,8 +1,5 @@
 // events reducer
-export default function scheduledEvents(state = {
-	start_dt: new Date(),
-	end_dt: new Date(),
-}, action = {}) {
+export default function scheduledEvents(state = [], action = {}) {
 	switch (action.type) {
 		case 'EVENTS_LIST_SAVE':
 			return action.scheduledEvents;
