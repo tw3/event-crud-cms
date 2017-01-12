@@ -1,6 +1,6 @@
-## Event-CRUD-CMS
+## event-crud-cms
 
-Event-CRUD-CMS is a full stack web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  The front-end component uses [React.js](https://facebook.github.io/react/) and [Redux](http://redux.js.org/) (among other technologies) to display and update the data as a single page application.  The data for the application is retrieved from a back-end component that uses [Express](http://expressjs.com/), [Seqeulize](http://sequelizejs.com), and [PostgreSQL](https://www.postgresql.org/).
+event-crud-cms is a full stack web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  The front-end component uses [React.js](https://facebook.github.io/react/) and [Redux](http://redux.js.org/) (among other technologies) to display and update the data as a single page application.  The data for the application is retrieved from a back-end component that uses [Express](http://expressjs.com/), [Seqeulize](http://sequelizejs.com), and [PostgreSQL](https://www.postgresql.org/).
 
 ## Getting Started
 

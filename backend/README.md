@@ -1,6 +1,6 @@
-## event-CRUD-CMS-backend
+## event-crud-cms-backend
 
-event-CRUD-CMS-backend is a backend-end web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  This application provides a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) way to fetch and update the data stored in a database.
+event-crud-cms-backend is a backend-end web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  This application provides a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) way to fetch and update the data stored in a database.
 
 ## Node-able Modules
 

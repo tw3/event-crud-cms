@@ -1,6 +1,6 @@
 ## event-CRUD-CMS-frontend ##
 
-event-CRUD-CMS-frontend is a front-end web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  This application was developed using the excellent [Redux Minimal](https://github.com/catalin-luntraru/redux-minimal) start kit and has been modified to interact with the [event-CRUD-CMS-backend](https://github.com/tw3/event-crud-cms/tree/master/backend) application, which is required to fetch and update the data in a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) manner.
+event-crud-cms-frontend is a front-end web application to **C**reate, **R**ead, **U**pdate and **D**elete a list of scheduled events.  This application was developed using the excellent [Redux Minimal](https://github.com/catalin-luntraru/redux-minimal) start kit and has been modified to interact with the [event-CRUD-CMS-backend](https://github.com/tw3/event-crud-cms/tree/master/backend) application, which is required to fetch and update the data in a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) manner.
 
 A demo of the app will be posted as some point.
 
