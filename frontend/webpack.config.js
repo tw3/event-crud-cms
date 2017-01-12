@@ -19,7 +19,7 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	eslint: {
-		emitWarnings: false
+		emitWarnings: false,
 	},
 	module: {
 		preLoaders: [
