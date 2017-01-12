@@ -1,7 +1,7 @@
 {
 	"name": "event-crud-cms-frontend",
 	"version": "1.0.0",
-	"description": "A front-end web application to Create, Read, Update and Delete a list of scheduled events.",
+	"description": "A front-end web application to Create, Read, Update and Delete a list of scheduled events. ",
 	"keywords": [
 		"react",
 		"redux"
