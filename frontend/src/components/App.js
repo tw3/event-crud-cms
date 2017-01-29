@@ -16,8 +16,9 @@ export class App extends React.Component {
 	render() {
 		// show the loading state while we wait for the app to load
 		const { scheduledEvents, children } = this.props;
+		const bIsFetching = (scheduledEvents === null);
 
-		if (!scheduledEvents.length) {
+		if (bIsFetching) {
 			return (
 				<ProgressBar active now={100} />
 			);
@@ -50,7 +51,7 @@ App.propTypes = {
 // export the connected class
 function mapStateToProps(state) {
 	return {
-		scheduledEvents: state.scheduledEvents || [],
+		scheduledEvents: state.scheduledEvents,
 	};
 }
 

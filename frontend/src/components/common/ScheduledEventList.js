@@ -67,6 +67,10 @@ export class ScheduledEventList extends React.Component {
 		const pages = Math.ceil(scheduledEvents.length / perPage);
 		const startOffset = (page - 1) * perPage;
 		let startCount = 0;
+		const pageScheduledEvents = scheduledEvents.filter((scheduledEvent, index) => {
+			return (index >= startOffset && startCount++ < perPage);
+		});
+		const bHasEvents = (pageScheduledEvents.length > 0);
 
 		// show the list of events
 		// TODO create custom view rather than ugly table view
@@ -85,16 +89,22 @@ export class ScheduledEventList extends React.Component {
 						</tr>
 					</thead>
 					<tbody>
-						{scheduledEvents.filter((scheduledEvent, index) => {
-							return (index >= startOffset && startCount++ < perPage);
-						}).map((scheduledEvent, index) => {
+					{bHasEvents ?
+						pageScheduledEvents.map((scheduledEvent, index) => {
 							return (
 								<ScheduledEventListElement
 									key={index} scheduledEvent={scheduledEvent}
 									showDelete={this.showDelete}
 								/>
 							);
-						})}
+						})
+						:
+						(
+						<td colSpan="7" style={{ textAlign: 'center' }}>
+							There are currently no events.  Please click the Add Event button to add an event.
+						</td>
+						)
+					}
 					</tbody>
 				</Table>
 

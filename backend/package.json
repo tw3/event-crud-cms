@@ -27,6 +27,9 @@
   },
   "author": "Ted Weatherly",
   "license": "MIT",
+  "engines": {
+    "node": "6.9.2"
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",

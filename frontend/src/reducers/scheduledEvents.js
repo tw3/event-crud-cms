@@ -1,5 +1,7 @@
 // events reducer
-export default function scheduledEvents(state = [], action = {}) {
+const initScheduledEvents = null;
+
+export default function scheduledEvents(state = initScheduledEvents, action = {}) {
 	switch (action.type) {
 		case 'EVENTS_LIST_SAVE':
 			return action.scheduledEvents;
